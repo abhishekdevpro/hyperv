@@ -1,6 +1,6 @@
 import CommunitySection from "@/sections/CommunitySection";
 import FeaturesSection from "@/sections/Features";
-import HeroSection from "@/sections/HEroSection";
+import HeroSection from "@/sections/HeroSection";
 import HyperVSolutionsHeader from "@/sections/HyperSolution";
 import Logos from "@/sections/Logos";
 import ProductsAndTools from "@/sections/Product";
