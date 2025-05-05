@@ -204,17 +204,24 @@ export default function Footer() {
                 </svg>
               </div>
               <p className="text-gray-400 text-sm">
-                PIMJO LLC - 30 N<br />
-                Gould St Ste R<br />
-                Sheridan, WY 82801
+              PO Box 1084,<br />
+Columbia, SC 29202 &<br />
+1225 Laurel St., Columbia, SC 29201.
+               
               </p>
             </div>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
-          © 2025 Pimjo. All rights reserved
+        <div className="border-t border-gray-800 mt-8 pt-8">
+          <div className="flex items-center">
+            <div className="flex-1 text-center text-gray-400 text-sm">© 2025 HyperV Solutions. All rights reserved</div>
+            <div className="flex space-x-4">
+              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/New-dbe-logo-300x300.png" alt="DBE Logo" className="h-8 w-8" />
+              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/SBE-Logo-1-300x300.png" alt="SBE Logo" className="h-8 w-8" />
+            </div>
+          </div>
         </div>
       </div>
     </footer>

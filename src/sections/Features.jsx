@@ -42,20 +42,20 @@ export default function FeaturesSection() {
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
         <FeatureCard
           icon={<Lightbulb className="w-12 h-12 text-pink-500" />}
-          title="In-house Only"
-          description="At Pimjo, we focus solely on developing our own products. No client projects — just 100% dedication to our vision and standards."
+          title="Built by Our In-House Experts"
+          description="Our 100% in-house dev team ensures unmatched security, quality, and control — no outsourcing, just direct access to the experts who build your solution."
         />
 
         <FeatureCard
           icon={<Laptop className="w-12 h-12 text-blue-500" />}
           title="Products and SaaS"
-          description="We build digital products and SaaS that actually matter. Scalable, sleek, and high-impact tools to grow your business."
+          description="We build innovative digital solutions using top-notch technology that is both secure and scalable — designed to streamline operations, boost efficiency, and fuel business growth."
         />
 
         <FeatureCard
           icon={<Laptop className="w-12 h-12 text-fuchsia-500" />}
-          title="Innovation First"
-          description="We're driven by curiosity and innovation. Every product we build is backed by research, strategy, and thoughtful design."
+          title="White-Label Solutions for Startups"
+          description="Empower your startup with high-tech, scalable white-label platforms — launch quickly at low cost without compromising on innovation, design, or performance."
         />
       </div>
     </section>
