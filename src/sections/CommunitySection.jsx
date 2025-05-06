@@ -1,9 +1,8 @@
-import { FaTwitter, FaDiscord, FaFacebook, FaLinkedin } from "react-icons/fa"
+import { FaTwitter, FaDiscord, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const CommunitySection = () => {
   return (
-
-<div className=" bg-gradient-to-br from-purple-600 to-purple-500">
+    <div className="  bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500">
       {/* Community Join Section */}
       <div className="flex justify-center items-center py-16 px-4">
         <div className="relative w-full bg-gray-900 text-white rounded-lg p-16 overflow-hidden">
@@ -28,25 +27,26 @@ const CommunitySection = () => {
               <FaLinkedin className="text-white text-lg" />
             </div>
           </div>
-          
+
           {/* Close Button */}
           <div className="absolute top-4 right-4">
             <button className="bg-gray-800 text-white rounded-full w-8 h-8 flex items-center justify-center">
               <span className="text-sm">✕</span>
             </button>
           </div>
-          
+
           {/* Content */}
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-2">Join Our Community</h2>
             <p className="text-gray-400 mb-6 max-w-md mx-auto">
-              Already using any of our products? Join our discord community stay in sync, chat with us and share your thoughts
+              Already using any of our products? Join our discord community stay
+              in sync, chat with us and share your thoughts
             </p>
-            
+
             <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-full flex items-center mx-auto">
               Join Now <span className="ml-2">👋</span>
             </button>
-            
+
             <div className="flex justify-center mt-8 space-x-6">
               <FaTwitter className="text-gray-400 hover:text-white text-xl cursor-pointer" />
               <FaDiscord className="text-gray-400 hover:text-white text-xl cursor-pointer" />
@@ -56,11 +56,10 @@ const CommunitySection = () => {
           </div>
         </div>
       </div>
-      
-      {/* Footer Section */}
-     
-    </div>
-  )
-}
 
-export default CommunitySection
+      {/* Footer Section */}
+    </div>
+  );
+};
+
+export default CommunitySection;

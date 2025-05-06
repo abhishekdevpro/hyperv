@@ -27,18 +27,18 @@
 //             from these companies on their projects.
 //           </p>
 //         </div>
-        
+
 //         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
 //           {companies.map((company) => (
-//             <div 
-//               key={company.name} 
+//             <div
+//               key={company.name}
 //               className="flex items-center justify-center p-6 border border-gray-200 rounded-lg bg-white hover:shadow-md transition-shadow duration-300"
 //             >
 //               <div className="relative h-12 w-full">
-//                 {/* 
+//                 {/*
 //                   In a real implementation, you would use Image component with actual images:
-//                   <Image 
-//                     src={company.logo} 
+//                   <Image
+//                     src={company.logo}
 //                     alt={`${company.name} logo`}
 //                     fill
 //                     className="object-contain"
@@ -58,33 +58,42 @@
 // }
 
 // components/NotableUsers.jsx
-import Image from 'next/image';
+import Image from "next/image";
+import logo1 from "../assets/logo1.png";
+import logo2 from "../assets/logo2.png";
+import logo3 from "../assets/logo3.png";
+import logo4 from "../assets/logo4.png";
+import logo5 from "../assets/logo5.png";
+import logo6 from "../assets/logo6.png";
+import logo7 from "../assets/logo7.png";
+import logo8 from "../assets/logo8.png";
 
 const companies = [
-  { name: 'Sony', logo: '/logos/sony.png' },
-  { name: 'Pfizer', logo: '/logos/pfizer.png' },
-  { name: 'RankMath', logo: '/logos/rankmath.png' },
-  { name: 'MetaMap', logo: '/logos/metamap.png' },
-  { name: 'Alibaba', logo: '/logos/alibaba.png' },
-  { name: 'OLX', logo: '/logos/olx.png' },
-  { name: 'PubNub', logo: '/logos/pubnub.png' },
-  { name: 'OpenAsApp', logo: '/logos/openasapp.png' },
-  { name: 'NorthOne', logo: '/logos/northone.png' },
-  { name: 'Zavvy', logo: '/logos/zavvy.png' },
-  { name: 'One Page Love', logo: '/logos/onepagelove.png' },
-  { name: 'Teads', logo: '/logos/teads.png' }
+  { name: "Sony", logo: logo1 },
+  { name: "Pfizer", logo: logo2 },
+  { name: "RankMath", logo: logo3 },
+  { name: "MetaMap", logo: logo4 },
+  { name: "Alibaba", logo: logo5 },
+  { name: "OLX", logo: logo6 },
+  { name: "PubNub", logo: logo7 },
+  { name: "OpenAsApp", logo: logo8 },
+  { name: "NorthOne", logo: logo1 },
+  { name: "Zavvy", logo: logo2 },
+  { name: "One Page Love", logo: logo3 },
+  { name: "Teads", logo: logo4 },
 ];
 
 export default function NotableUsers() {
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="py-16 px-4 text-white   bg-gradient-to-r from-blue-600 via-pink-300 to-fuchsia-500">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Notable Users
+          <h2 className="text-4xl md:text-5xl font-bold text-white  mb-4">
+            Trusted by Industry Leaders
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            You are in good company — our products have been used by teams from these amazing companies.
+          <p className="text-lg text-white max-w-3xl mx-auto">
+            Join the growing list of companies leveraging our solutions to
+            innovate, streamline, and scale their business operations.
           </p>
         </div>
 

@@ -34,7 +34,7 @@
 //     </div>
 //   )
 // }
-import { Lightbulb, Laptop } from "lucide-react"
+import { Lightbulb, Laptop } from "lucide-react";
 
 export default function FeaturesSection() {
   return (
@@ -59,7 +59,7 @@ export default function FeaturesSection() {
         />
       </div>
     </section>
-  )
+  );
 }
 
 function FeatureCard({ icon, title, description }) {
@@ -71,9 +71,7 @@ function FeatureCard({ icon, title, description }) {
       <h3 className="text-xl font-extrabold text-[#161339] group-hover:text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500 transition-all duration-300">
         {title}
       </h3>
-      <p className="text-gray-600 mt-3 leading-relaxed">
-        {description}
-      </p>
+      <p className="text-gray-600 mt-3 leading-relaxed">{description}</p>
     </div>
-  )
+  );
 }

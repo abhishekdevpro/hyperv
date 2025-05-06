@@ -16,7 +16,7 @@ export default function HeroSection() {
       text: "Edtech platform",
     },
     {
-      text: "AIenabled applications",
+      text: "AI Enabled applications",
     },
   ];
 
@@ -29,12 +29,12 @@ export default function HeroSection() {
         <div className="text-center space-y-4 sm:space-y-5 md:space-y-6">
           <div className="flex flex-col items-center text-center px-2 sm:px-4 py-6 sm:py-8 md:py-10 gap-2 sm:gap-3 md:gap-4">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-            Empowering Businesses with Smart Digital Solutions,
+              Empowering Businesses with Smart Digital Solutions,
             </h1>
 
             <div className="flex flex-col sm:flex-row items-center justify-center sm:space-x-2 space-y-2 sm:space-y-0">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              We Streamline
+                We Streamline
               </h1>
               <div className="h-auto">
                 <TypewriterEffectSmooth
@@ -51,9 +51,11 @@ export default function HeroSection() {
           </div>
 
           <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto px-4">
-          At HyperVSolutions, we specialize in building AI-powered platforms tailored to modern business needs.
-From customizable job portals and white-label HR tools to scalable EdTech systems, we help you automate and grow.
-Our smart digital solutions simplify hiring, training, and workforce management — all under one roof.
+            At HyperVSolutions, we specialize in building AI-powered platforms
+            tailored to modern business needs. From customizable job portals and
+            white-label HR tools to scalable EdTech systems, we help you
+            automate and grow. Our smart digital solutions simplify hiring,
+            training, and workforce management — all under one roof.
           </p>
 
           <div className="pt-2 sm:pt-4">
