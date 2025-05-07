@@ -43,14 +43,14 @@ export default function HeroSection() {
                   typeSpeed={150}
                   deleteSpeed={100}
                   delayBetweenWords={1000}
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-rose-500 text-transparent bg-clip-text"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-red-400 via-fuchsia-800 to-blue-900 text-transparent bg-clip-text"
                   cursorClassName="text-pink-500"
                 />
               </div>
             </div>
           </div>
 
-          <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto px-4">
+          <p className="text-sm sm:text-base md:text-lg text-white max-w-3xl mx-auto px-4">
             At HyperVSolutions, we specialize in building AI-powered platforms
             tailored to modern business needs. From customizable job portals and
             white-label HR tools to scalable EdTech systems, we help you

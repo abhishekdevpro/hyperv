@@ -12,10 +12,11 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <HyperVSolutionsHeader />
-      <Logos />
+
       <WebBuildSection />
       <ProductsAndTools />
-    <CommunitySection />
+      <Logos />
+      <CommunitySection />
     </main>
   );
 }
