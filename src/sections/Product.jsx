@@ -281,7 +281,7 @@ const ProductsAndTools = () => {
       ],
       viewProductLink: "https://novajobs.us/",
       screenshot: novajobs,
-      youtubeLink: "https://www.youtube.com/watch?v=your-novajobs-video-id",
+      youtubeLink: "https://www.youtube.com/watch?v=avkVoUCOrJ4",
       pdfUrl: "https://novajobs.us/booklet.pdf",
     },
     {
@@ -312,7 +312,7 @@ const ProductsAndTools = () => {
       ],
       viewProductLink: "https://ultraaura.education",
       screenshot: ultraaura,
-      youtubeLink: "https://www.youtube.com/watch?v=your-ultraaura-video-id",
+      youtubeLink: "https://www.youtube.com/watch?v=CbWnPty7N3o",
       pdfUrl: "https://ultraaura.education/booklet.pdf",
     },
     {
@@ -343,7 +343,7 @@ const ProductsAndTools = () => {
       ],
       viewProductLink: "https://novahome.care/",
       screenshot: novahomecare,
-      youtubeLink: "https://www.youtube.com/watch?v=your-novahomecare-video-id",
+      youtubeLink: "https://www.youtube.com/watch?v=KmlLB-t6IUI",
       pdfUrl: "https://novahome.care/booklet.pdf",
     },
     {
@@ -374,7 +374,7 @@ const ProductsAndTools = () => {
       ],
       viewProductLink: "https://paradigmshifts.life/",
       screenshot: paradigmshift,
-      youtubeLink: "https://www.youtube.com/watch?v=your-paradigmshifts-video-id",
+      youtubeLink: "https://www.youtube.com/watch?v=pk548myIXv0",
       pdfUrl: "https://paradigmshifts.life/booklet.pdf",
     },
   ];
