@@ -5,6 +5,7 @@ import HyperVSolutionsHeader from "@/sections/HyperSolution";
 import Logos from "@/sections/Logos";
 import ProductsAndTools from "@/sections/Product";
 import WebBuildSection from "@/sections/WebBuildSection";
+import PdfBookletViewer from "@/sections/PdfBookletViewer";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <HyperVSolutionsHeader />
-
+      <PdfBookletViewer />
       <WebBuildSection />
       <ProductsAndTools />
       <Logos />
