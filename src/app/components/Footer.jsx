@@ -218,8 +218,8 @@ Columbia, SC 29202 &<br />
           <div className="flex items-center">
             <div className="flex-1 text-center text-gray-400 text-sm">© 2025 HyperV Solutions. All rights reserved</div>
             <div className="flex space-x-4">
-              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/New-dbe-logo-300x300.png" alt="DBE Logo" className="h-8 w-8" />
-              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/SBE-Logo-1-300x300.png" alt="SBE Logo" className="h-8 w-8" />
+              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/New-dbe-logo-300x300.png" alt="DBE Logo" className="h-12 w-12" />
+              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/SBE-Logo-1-300x300.png" alt="SBE Logo" className="h-12 w-12" />
             </div>
           </div>
         </div>

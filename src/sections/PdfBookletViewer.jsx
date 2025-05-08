@@ -3,9 +3,10 @@ import { useState, useEffect } from 'react';
 
 const PdfBookletViewer = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [isFlipping, setIsFlipping] = useState(false);
-  const [flipDirection, setFlipDirection] = useState('');
+  const [isSliding, setIsSliding] = useState(false);
+  const [slideDirection, setSlideDirection] = useState('');
   const [isHovering, setIsHovering] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState({});
   const totalPages = 12;
 
   const images = [
@@ -24,18 +25,18 @@ const PdfBookletViewer = () => {
   ];
 
   const handlePageTurn = (direction) => {
-    if (isFlipping) return;
-    setIsFlipping(true);
-    setFlipDirection(direction);
+    if (isSliding) return;
+    setIsSliding(true);
+    setSlideDirection(direction);
     if (direction === 'next' && currentPage < totalPages - 2) {
       setCurrentPage(prev => prev + 2);
     } else if (direction === 'prev' && currentPage > 0) {
       setCurrentPage(prev => prev - 2);
     }
     setTimeout(() => {
-      setIsFlipping(false);
-      setFlipDirection('');
-    }, 800);
+      setIsSliding(false);
+      setSlideDirection('');
+    }, 600);
   };
 
   const handleKeyPress = (e) => {
@@ -49,6 +50,13 @@ const PdfBookletViewer = () => {
   const handleSliderChange = (e) => {
     const newPage = Math.floor((e.target.value / 100) * (totalPages - 1));
     setCurrentPage(newPage - (newPage % 2));
+  };
+
+  const handleImageLoad = (index) => {
+    setImagesLoaded(prev => ({
+      ...prev,
+      [index]: true
+    }));
   };
 
   useEffect(() => {
@@ -66,7 +74,7 @@ const PdfBookletViewer = () => {
       {/* Left Chevron */}
       <button
         onClick={() => handlePageTurn('prev')}
-        disabled={currentPage <= 0 || isFlipping}
+        disabled={currentPage <= 0 || isSliding}
         className={`z-20 absolute left-40 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 hover:bg-white shadow-lg border border-gray-200 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed group`}
         style={{ boxShadow: '0 4px 24px 0 rgba(0,0,0,0.08)' }}
       >
@@ -84,62 +92,31 @@ const PdfBookletViewer = () => {
       >
         {/* Book container */}
         <div className="w-full h-full flex gap-10 relative">
-          {/* Left Page */}
+          {/* Pages Container */}
           <div
-            className={`w-1/2 h-full transition-all duration-800 transform-gpu origin-left
-              ${isFlipping && flipDirection === 'next' ? 'rotate-y-180' : ''}
-              ${isFlipping && flipDirection === 'prev' ? 'rotate-y-0' : ''}
-              preserve-3d`}
-            style={{ transformStyle: 'preserve-3d' }}
+            className={`w-full h-full flex gap-10 transition-all duration-600 ease-in-out
+              ${isSliding && slideDirection === 'next' ? '-translate-x-[calc(50%+20px)]' : ''}
+              ${isSliding && slideDirection === 'prev' ? 'translate-x-0' : ''}`}
           >
-            <div className="w-full h-full backface-hidden" style={{ backfaceVisibility: 'hidden' }}>
+            {/* Left Page */}
+            <div className="w-1/2 h-full relative">
+              <div className={`absolute inset-0 bg-gray-100 animate-pulse ${imagesLoaded[currentPage] ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`} />
               <img
                 src={images[currentPage]}
                 alt={`Page ${currentPage + 1}`}
-                className="w-full h-full object-contain"
+                className={`w-full h-full object-contain transition-opacity duration-300 ${imagesLoaded[currentPage] ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={() => handleImageLoad(currentPage)}
               />
             </div>
-            <div
-              className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gray-100"
-              style={{
-                backfaceVisibility: 'hidden',
-                transform: 'rotateY(180deg)'
-              }}
-            >
-              <img
-                src={images[currentPage + 2]}
-                alt={`Page ${currentPage + 3}`}
-                className="w-full h-full object-contain"
-              />
-            </div>
-          </div>
 
-          {/* Right Page */}
-          <div
-            className={`w-1/2 h-full transition-all duration-800 transform-gpu origin-right
-              ${isFlipping && flipDirection === 'prev' ? 'rotate-y-180' : ''}
-              ${isFlipping && flipDirection === 'next' ? 'rotate-y-0' : ''}
-              preserve-3d`}
-            style={{ transformStyle: 'preserve-3d' }}
-          >
-            <div className="w-full h-full backface-hidden" style={{ backfaceVisibility: 'hidden' }}>
+            {/* Right Page */}
+            <div className="w-1/2 h-full relative">
+              <div className={`absolute inset-0 bg-gray-100 animate-pulse ${imagesLoaded[currentPage + 1] ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`} />
               <img
                 src={images[currentPage + 1]}
                 alt={`Page ${currentPage + 2}`}
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div
-              className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gray-100"
-              style={{
-                backfaceVisibility: 'hidden',
-                transform: 'rotateY(180deg)'
-              }}
-            >
-              <img
-                src={images[currentPage + 3]}
-                alt={`Page ${currentPage + 4}`}
-                className="w-full h-full object-contain"
+                className={`w-full h-full object-contain transition-opacity duration-300 ${imagesLoaded[currentPage + 1] ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={() => handleImageLoad(currentPage + 1)}
               />
             </div>
           </div>
@@ -170,7 +147,7 @@ const PdfBookletViewer = () => {
       {/* Right Chevron */}
       <button
         onClick={() => handlePageTurn('next')}
-        disabled={currentPage >= totalPages - 2 || isFlipping}
+        disabled={currentPage >= totalPages - 2 || isSliding}
         className={`z-20 absolute right-40 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 hover:bg-white shadow-lg border border-gray-200 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed group`}
         style={{ boxShadow: '0 4px 24px 0 rgba(0,0,0,0.08)' }}
       >

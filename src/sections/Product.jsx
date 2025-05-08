@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import novajobs from "../assets/novajobs.png";
 import novahomecare from "../assets/novahomecare.png";
@@ -19,6 +19,18 @@ const ProductCard = ({
 }) => {
   const [showPdfPopup, setShowPdfPopup] = useState(false);
   const [pdfError, setPdfError] = useState(false);
+
+  useEffect(() => {
+    if (showPdfPopup) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showPdfPopup]);
 
   const getPdfViewerUrl = () => {
     if (!pdfUrl) {
@@ -40,7 +52,11 @@ const ProductCard = ({
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-stretch gap-6 rounded-xl shadow-md bg-white p-6 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:bg-gradient-to-br hover:from-white hover:to-purple-50">
+    <div className="flex flex-col md:flex-row items-stretch gap-6 rounded-xl shadow-md bg-white p-6 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:bg-gradient-to-br hover:from-white hover:to-purple-50 group">
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-pink-500/10 transition-all duration-500"></div>
+      <div className="absolute inset-0 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+      <div className="absolute inset-0 rounded-xl shadow-[0_0_30px_rgba(168,85,247,0.3)] opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-1"></div>
+      <div className="absolute inset-0 rounded-xl shadow-[0_0_30px_rgba(236,72,153,0.3)] opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-x-1"></div>
       {isReversed ? (
         <>
           <div className="w-full md:w-1/2 group relative">
@@ -94,12 +110,70 @@ const ProductCard = ({
                 </Link>
                 <button
                   onClick={handleBookletClick}
-                  className="inline-flex items-center gap-1 uppercase text-xs font-semibold tracking-wider text-blue-600 hover:text-blue-700 transition-all duration-500 hover:tracking-widest"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-all duration-300 group relative overflow-hidden shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)]"
+                  style={{
+                    position: 'relative',
+                    height: '40px',
+                    width: '120px',
+                  }}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  {/* Ripple circles */}
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'hidden',
+                  }}>
+                    <div style={{
+                      animation: 'growAndFade 3s infinite ease-out',
+                      backgroundColor: 'dodgerblue',
+                      borderRadius: '50%',
+                      height: '200%',
+                      width: '200%',
+                      opacity: 0,
+                      position: 'absolute',
+                    }}></div>
+                    <div style={{
+                      animation: 'growAndFade 3s infinite ease-out',
+                      animationDelay: '1s',
+                      backgroundColor: 'dodgerblue',
+                      borderRadius: '50%',
+                      height: '200%',
+                      width: '200%',
+                      opacity: 0,
+                      position: 'absolute',
+                    }}></div>
+                    <div style={{
+                      animation: 'growAndFade 3s infinite ease-out',
+                      animationDelay: '2s',
+                      backgroundColor: 'dodgerblue',
+                      borderRadius: '50%',
+                      height: '200%',
+                      width: '200%',
+                      opacity: 0,
+                      position: 'absolute',
+                    }}></div>
+                  </div>
+                  
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform group-hover:rotate-12 transition-transform duration-300 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
-                  Booklet
+                  <span className="uppercase text-xs font-semibold tracking-wider group-hover:tracking-widest transition-all duration-300 relative z-10">Booklet</span>
+
+                  <style jsx>{`
+                    @keyframes growAndFade {
+                      0% {
+                        opacity: .25;
+                        transform: scale(0);
+                      }
+                      100% {
+                        opacity: 0;
+                        transform: scale(1);
+                      }
+                    }
+                  `}</style>
                 </button>
               </div>
             </div>
@@ -130,12 +204,70 @@ const ProductCard = ({
                 </Link>
                 <button
                   onClick={handleBookletClick}
-                  className="inline-flex items-center gap-1 uppercase text-xs font-semibold tracking-wider text-blue-600 hover:text-blue-700 transition-all duration-500 hover:tracking-widest"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-all duration-300 group relative overflow-hidden shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)]"
+                  style={{
+                    position: 'relative',
+                    height: '40px',
+                    width: '120px',
+                  }}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  {/* Ripple circles */}
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'hidden',
+                  }}>
+                    <div style={{
+                      animation: 'growAndFade 3s infinite ease-out',
+                      backgroundColor: 'dodgerblue',
+                      borderRadius: '50%',
+                      height: '200%',
+                      width: '200%',
+                      opacity: 0,
+                      position: 'absolute',
+                    }}></div>
+                    <div style={{
+                      animation: 'growAndFade 3s infinite ease-out',
+                      animationDelay: '1s',
+                      backgroundColor: 'dodgerblue',
+                      borderRadius: '50%',
+                      height: '200%',
+                      width: '200%',
+                      opacity: 0,
+                      position: 'absolute',
+                    }}></div>
+                    <div style={{
+                      animation: 'growAndFade 3s infinite ease-out',
+                      animationDelay: '2s',
+                      backgroundColor: 'dodgerblue',
+                      borderRadius: '50%',
+                      height: '200%',
+                      width: '200%',
+                      opacity: 0,
+                      position: 'absolute',
+                    }}></div>
+                  </div>
+                  
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform group-hover:rotate-12 transition-transform duration-300 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
-                  Booklet
+                  <span className="uppercase text-xs font-semibold tracking-wider group-hover:tracking-widest transition-all duration-300 relative z-10">Booklet</span>
+
+                  <style jsx>{`
+                    @keyframes growAndFade {
+                      0% {
+                        opacity: .25;
+                        transform: scale(0);
+                      }
+                      100% {
+                        opacity: 0;
+                        transform: scale(1);
+                      }
+                    }
+                  `}</style>
                 </button>
               </div>
             </div>
@@ -173,7 +305,7 @@ const ProductCard = ({
 
       {/* PDF Popup */}
       {showPdfPopup && (
-        <div className="fixed z-50 inset-0 bg-black/60 backdrop-blur-sm h-full flex items-center justify-center p-4 transition-all duration-300 ease-in-out">
+        <div className="fixed z-50 inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl h-[90vh] relative flex flex-col transform transition-all duration-300 ease-in-out animate-fadeIn">
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
@@ -282,7 +414,7 @@ const ProductsAndTools = () => {
       viewProductLink: "https://novajobs.us/",
       screenshot: novajobs,
       youtubeLink: "https://www.youtube.com/watch?v=avkVoUCOrJ4",
-      pdfUrl: "https://novajobs.us/booklet.pdf",
+      pdfUrl: "https://drive.google.com/uc?export=view&id=1924uZupUppvghGvBcJjfj_W6J8c8nMbm",
     },
     {
       logo: (
@@ -313,7 +445,7 @@ const ProductsAndTools = () => {
       viewProductLink: "https://ultraaura.education",
       screenshot: ultraaura,
       youtubeLink: "https://www.youtube.com/watch?v=CbWnPty7N3o",
-      pdfUrl: "https://ultraaura.education/booklet.pdf",
+      pdfUrl: "https://www.orimi.com/pdf-test.pdf",
     },
     {
       logo: (
@@ -344,7 +476,7 @@ const ProductsAndTools = () => {
       viewProductLink: "https://novahome.care/",
       screenshot: novahomecare,
       youtubeLink: "https://www.youtube.com/watch?v=KmlLB-t6IUI",
-      pdfUrl: "https://novahome.care/booklet.pdf",
+      pdfUrl: "https://www.orimi.com/pdf-test.pdf",
     },
     {
       logo: (
@@ -375,7 +507,7 @@ const ProductsAndTools = () => {
       viewProductLink: "https://paradigmshifts.life/",
       screenshot: paradigmshift,
       youtubeLink: "https://www.youtube.com/watch?v=pk548myIXv0",
-      pdfUrl: "https://paradigmshifts.life/booklet.pdf",
+      pdfUrl: "https://www.orimi.com/pdf-test.pdf",
     },
   ];
 

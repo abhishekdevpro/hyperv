@@ -235,18 +235,8 @@ export default function Navbar() {
         scrolled ? "bg-white shadow-md py-3 text-black" : "bg-transparent py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto py-2 flex justify-between items-center px-4">
-        <Link href="/" className="flex items-center">
-          <div className="text-3xl font-bold flex items-center">
-            <Image
-              src={logo}
-              alt="Logo"
-              width={150}
-              height={100}
-              className="rounded"
-            />
-          </div>
-        </Link>
+      <div className="max-w-7xl mx-auto py-2 flex justify-center items-center px-4">
+      
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-2">
@@ -261,49 +251,30 @@ export default function Navbar() {
             label="About"
             isActive={activePage === "about"}
           />
+            <div className="text-3xl font-bold flex items-center">
+            <Image
+              src={logo}
+              alt="Logo"
+              width={150}
+              height={100}
+              className="rounded"
+            />
+          </div>
+           <NavItem
+            href="#contact"
+            label="Client & Partners"
+            isActive={activePage === "Client & Partners"}
+          />
           <NavItem href="#blog" label="Blog" isActive={activePage === "blog"} />
           <NavItem
             href="#contact"
             label="Contact"
             isActive={activePage === "contact"}
           />
+          
         </div>
 
-        {/* Desktop Social Icons */}
-        <div className="hidden md:flex items-center space-x-4 text-2xl">
-          <Link
-            href="#"
-            className={`social-icon hover:opacity-75 transition-opacity ${
-              !scrolled ? "text-white" : ""
-            }`}
-          >
-            <FaTwitter />
-          </Link>
-          <Link
-            href="#"
-            className={`social-icon hover:opacity-75 transition-opacity ${
-              !scrolled ? "text-white" : ""
-            }`}
-          >
-            <FaDiscord />
-          </Link>
-          <Link
-            href="#"
-            className={`social-icon hover:opacity-75 transition-opacity ${
-              !scrolled ? "text-white" : ""
-            }`}
-          >
-            <FaFacebook />
-          </Link>
-          <Link
-            href="#"
-            className={`social-icon hover:opacity-75 transition-opacity ${
-              !scrolled ? "text-white" : ""
-            }`}
-          >
-            <FaLinkedin />
-          </Link>
-        </div>
+       
 
         {/* Mobile Menu Button */}
         <button

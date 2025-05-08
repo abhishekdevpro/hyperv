@@ -56,6 +56,25 @@ module.exports = {
         },
         animation: {
           float: "float 8s infinite ease-in-out",
+          shimmer: 'shimmer 2s linear infinite',
+          'spin-slow': 'spin 8s linear infinite',
+          'grow-and-fade': 'growAndFade 2s infinite ease-out',
+        },
+        keyframes: {
+          shimmer: {
+            '0%': { transform: 'translateX(-100%)' },
+            '100%': { transform: 'translateX(100%)' },
+          },
+          growAndFade: {
+            '0%': { 
+              opacity: '0.5',
+              transform: 'scale(0.3)'
+            },
+            '100%': { 
+              opacity: '0',
+              transform: 'scale(1.5)'
+            },
+          },
         },
       },
     },
