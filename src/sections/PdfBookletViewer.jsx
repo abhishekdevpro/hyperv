@@ -36,7 +36,7 @@ const PdfBookletViewer = () => {
     setTimeout(() => {
       setIsSliding(false);
       setSlideDirection('');
-    }, 600);
+    }, 1000); // Increased duration for smoother animation
   };
 
   const handleKeyPress = (e) => {
@@ -64,10 +64,26 @@ const PdfBookletViewer = () => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [currentPage]);
 
+  // Auto-slider functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isHovering && !isSliding) {
+        if (currentPage >= totalPages - 2) {
+          // Reset to the first page when reaching the last page
+          setCurrentPage(0);
+        } else {
+          handlePageTurn('next');
+        }
+      }
+    }, 5000); // Change page every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [isHovering, isSliding, currentPage]);
+
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-gray-50">
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500">
       {/* Title */}
-      <h1 className="text-3xl font-bold text-gray-800 mb-10 mt-8 text-center drop-shadow-sm">
+      <h1 className="text-3xl font-bold text-white mb-10 mt-8 text-center drop-shadow-lg">
         Hyper-V Solutions Booklet 2025
       </h1>
 
@@ -75,10 +91,10 @@ const PdfBookletViewer = () => {
       <button
         onClick={() => handlePageTurn('prev')}
         disabled={currentPage <= 0 || isSliding}
-        className={`z-20 absolute left-40 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 hover:bg-white shadow-lg border border-gray-200 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed group`}
+        className={`z-20 absolute left-40 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 hover:bg-pink-500 shadow-lg border border-gray-200 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed group`}
         style={{ boxShadow: '0 4px 24px 0 rgba(0,0,0,0.08)' }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-gray-400 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-gray-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
@@ -94,13 +110,11 @@ const PdfBookletViewer = () => {
         <div className="w-full h-full flex gap-10 relative">
           {/* Pages Container */}
           <div
-            className={`w-full h-full flex gap-10 transition-all duration-600 ease-in-out
-              ${isSliding && slideDirection === 'next' ? '-translate-x-[calc(50%+20px)]' : ''}
-              ${isSliding && slideDirection === 'prev' ? 'translate-x-0' : ''}`}
+            className={`w-full h-full flex gap-10 transition-transform duration-1000 ease-in-out transform-origin-center`}
           >
             {/* Left Page */}
             <div className="w-1/2 h-full relative">
-              <div className={`absolute inset-0 bg-gray-100 animate-pulse ${imagesLoaded[currentPage] ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`} />
+              <div className={`absolute inset-0 transition-opacity duration-300 ${imagesLoaded[currentPage] ? 'opacity-0' : 'opacity-100'}`} />
               <img
                 src={images[currentPage]}
                 alt={`Page ${currentPage + 1}`}
@@ -111,7 +125,7 @@ const PdfBookletViewer = () => {
 
             {/* Right Page */}
             <div className="w-1/2 h-full relative">
-              <div className={`absolute inset-0 bg-gray-100 animate-pulse ${imagesLoaded[currentPage + 1] ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`} />
+              <div className={`absolute inset-0 transition-opacity duration-300 ${imagesLoaded[currentPage + 1] ? 'opacity-0' : 'opacity-100'}`} />
               <img
                 src={images[currentPage + 1]}
                 alt={`Page ${currentPage + 2}`}
@@ -124,7 +138,7 @@ const PdfBookletViewer = () => {
 
         {/* Progress Slider (on hover) */}
         <div
-          className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/30 to-transparent transition-opacity duration-300 ${
+          className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-blue-500/50 to-transparent transition-opacity duration-300 ${
             isHovering ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
         >
@@ -137,7 +151,7 @@ const PdfBookletViewer = () => {
               onChange={handleSliderChange}
               className="w-full h-2 bg-white/30 rounded-lg appearance-none cursor-pointer"
               style={{
-                background: `linear-gradient(to right, #3B82F6 0%, #3B82F6 ${(currentPage / (totalPages - 1)) * 100}%, rgba(255,255,255,0.3) ${(currentPage / (totalPages - 1)) * 100}%, rgba(255,255,255,0.3) 100%)`
+                background: `linear-gradient(to right, #EC4899 0%, #3B82F6 ${(currentPage / (totalPages - 1)) * 100}%, rgba(255,255,255,0.3) ${(currentPage / (totalPages - 1)) * 100}%, rgba(255,255,255,0.3) 100%)`
               }}
             />
           </div>
@@ -148,10 +162,10 @@ const PdfBookletViewer = () => {
       <button
         onClick={() => handlePageTurn('next')}
         disabled={currentPage >= totalPages - 2 || isSliding}
-        className={`z-20 absolute right-40 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 hover:bg-white shadow-lg border border-gray-200 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed group`}
+        className={`z-20 absolute right-40 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 hover:bg-blue-500 shadow-lg border border-gray-200 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed group`}
         style={{ boxShadow: '0 4px 24px 0 rgba(0,0,0,0.08)' }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-gray-400 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-gray-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
@@ -159,4 +173,4 @@ const PdfBookletViewer = () => {
   );
 };
 
-export default PdfBookletViewer; 
+export default PdfBookletViewer;

@@ -9,10 +9,11 @@ import logo5 from "../assets/logo5.png";
 import logo6 from "../assets/logo6.png";
 import logo7 from "../assets/logo7.png";
 import logo8 from "../assets/logo8.png";
+import logo9 from "../assets/image.png";
 
 const companies = [
   { name: "Sony", logo: logo1 },
-  { name: "Sony", logo: newlogo },
+  // { name: "Sony", logo: newlogo },
   { name: "Sony", logo: newlogo2 },
   { name: "Sony", logo: logo2 },
   { name: "Sony", logo: logo3 },
@@ -21,6 +22,7 @@ const companies = [
   { name: "Sony", logo: logo6 },
   { name: "Sony", logo: logo7 },
   { name: "Sony", logo: logo8 },
+    { name: "Sony", logo: logo9 },
  
   { name: "Sony", logo: logo2 },
   
