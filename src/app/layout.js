@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -26,6 +27,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Script id="chatling-config">
+          {`window.chtlConfig = { chatbotId: "7533359378" }`}
+        </Script>
+        <Script
+          async
+          data-id="7533359378"
+          id="chtl-script"
+          src="https://chatling.ai/js/embed.js"
+        />
         <Navbar />
         {children}
         <Footer />

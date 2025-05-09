@@ -57,15 +57,15 @@ const stats = [
 export default function WebBuildSection() {
   return (
     <>
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col-reverse lg:flex-row lg:items-center lg:gap-12">
             {/* Left Column - Text Content */}
-            <div className="lg:w-1/2 mt-10 lg:mt-0">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <div className="lg:w-1/2 mt-8 sm:mt-10 lg:mt-0">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 We Build Powerful Tools for the Modern Web
               </h2>
-              <div className="space-y-4 text-gray-700 text-lg">
+              <div className="space-y-3 sm:space-y-4 text-gray-700 text-base sm:text-lg">
                 <p>
                   Accelerate your digital journey with secure, scalable, and
                   user-friendly solutions.
@@ -80,27 +80,16 @@ export default function WebBuildSection() {
 
             {/* Right Column - Stats Grid */}
             <div className="lg:w-1/2">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                 {stats.map((stat, index) => (
-                  // <div
-                  //   key={index}
-                  //   className="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 flex flex-col items-center justify-center text-center hover:shadow-md transition duration-300"
-                  // >
-                  //   <h3 className="text-5xl font-bold text-indigo-600 mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:via-fuchsia-500 group-hover:to-rose-500 group-hover:text-2xl group-hover:sm:text-3xl group-hover:md:text-4xl group-hover:lg:text-5xl group-hover:font-extrabold">
-                  //     {stat.number}
-                  //   </h3>
-                  //   <p className="text-gray-600 text-base font-medium">
-                  //     {stat.description}
-                  //   </p>
-                  // </div>
                   <div
                     key={index}
-                    className="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 flex flex-col items-center justify-center text-center hover:shadow-md transition duration-300 group"
+                    className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center hover:shadow-md transition duration-300 group"
                   >
-                    <h3 className="text-5xl font-bold text-black mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:via-fuchsia-500 group-hover:to-rose-500 group-hover:text-2xl group-hover:sm:text-3xl group-hover:md:text-4xl group-hover:lg:text-5xl group-hover:font-extrabold">
+                    <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-1 sm:mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:via-fuchsia-500 group-hover:to-rose-500">
                       {stat.number}
                     </h3>
-                    <p className="text-gray-600 text-base font-medium">
+                    <p className="text-sm sm:text-base text-gray-600 font-medium">
                       {stat.description}
                     </p>
                   </div>
@@ -110,7 +99,7 @@ export default function WebBuildSection() {
           </div>
         </div>
       </section>
-      <div className="mx-auto w-3/4 h-1 bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500 mt-2"></div>
+      <div className="mx-auto w-11/12 sm:w-4/5 md:w-3/4 h-0.5 sm:h-1 bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500 mt-2"></div>
     </>
   );
 }
