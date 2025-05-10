@@ -65,7 +65,7 @@ export default function WebBuildSection() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 We Build Powerful Tools for the Modern Web
               </h2>
-              <div className="space-y-3 sm:space-y-4 text-gray-700 text-base sm:text-lg">
+              <div className="space-y-3 sm:space-y-4 text-gray-700 text-sm sm:text-base md:text-lg">
                 <p>
                   Accelerate your digital journey with secure, scalable, and
                   user-friendly solutions.
@@ -86,10 +86,10 @@ export default function WebBuildSection() {
                     key={index}
                     className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center hover:shadow-md transition duration-300 group"
                   >
-                    <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-1 sm:mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:via-fuchsia-500 group-hover:to-rose-500">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-1 sm:mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:via-fuchsia-500 group-hover:to-rose-500">
                       {stat.number}
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-600 font-medium">
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600 font-medium">
                       {stat.description}
                     </p>
                   </div>
