@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaTwitter, FaDiscord, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaTwitter, FaDiscord, FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 import logo from "@/assets/logo.jpg"
 export default function Footer() {
   return (
@@ -116,10 +116,22 @@ export default function Footer() {
               around the world!
             </p>
             <div className="flex space-x-4">
-              <FaTwitter className="text-gray-400 hover:text-white cursor-pointer" />
-              <FaDiscord className="text-gray-400 hover:text-white cursor-pointer" />
-              <FaFacebook className="text-gray-400 hover:text-white cursor-pointer" />
-              <FaLinkedin className="text-gray-400 hover:text-white cursor-pointer" />
+              <Link href="https://www.youtube.com/@HyperVSolutions" target="_blank" rel="noopener noreferrer">
+                <FaYoutube className="text-[#FF0000] hover:opacity-80 cursor-pointer" size={20} />
+              </Link>
+              <Link href="https://www.linkedin.com/company/hyperv-solutions" target="_blank" rel="noopener noreferrer">
+                <FaLinkedin className="text-[#0077B5] hover:opacity-80 cursor-pointer" size={20} />
+              </Link>
+              <Link href="https://twitter.com/hypervsolutions" target="_blank" rel="noopener noreferrer">
+                <FaTwitter className="text-[#1DA1F2] hover:opacity-80 cursor-pointer" size={20} />
+              </Link>
+              <Link href="https://www.facebook.com/hypervsolutions" target="_blank" rel="noopener noreferrer">
+                <FaFacebook className="text-[#4267B2] hover:opacity-80 cursor-pointer" size={20} />
+              </Link>
+            </div>
+            <div className="flex space-x-4 mt-4">
+              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/New-dbe-logo-300x300.png" alt="DBE Logo" className="h-12 w-12" />
+              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/SBE-Logo-1-300x300.png" alt="SBE Logo" className="h-12 w-12" />
             </div>
           </div>
 
@@ -217,10 +229,7 @@ Columbia, SC 29202 &<br />
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex items-center">
             <div className="flex-1 text-center text-gray-400 text-sm">© 2025 HyperV Solutions. All rights reserved</div>
-            <div className="flex space-x-4">
-              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/New-dbe-logo-300x300.png" alt="DBE Logo" className="h-12 w-12" />
-              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/SBE-Logo-1-300x300.png" alt="SBE Logo" className="h-12 w-12" />
-            </div>
+           
           </div>
         </div>
       </div>
