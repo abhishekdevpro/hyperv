@@ -102,7 +102,7 @@ export default function HyperVSolutionsHeader() {
                group-hover:via-pink-500 group-hover:to-fuchsia-500"
           >
             Hyper V Solutions
-            <div className="mx-auto w-3/4 h-1 bg-gray-100 mt-2"></div>
+          <div className="mx-auto w-3/4 h-1 mt-3 bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500 mt-2"></div>
           </h1>
         </div>
 
