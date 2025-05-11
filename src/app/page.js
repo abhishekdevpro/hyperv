@@ -14,7 +14,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <HyperVSolutionsHeader />
-      {/* <PdfBookletViewer /> */}
+      <PdfBookletViewer />
       <WebBuildSection />
       <ProductsAndTools />
     
