@@ -57,49 +57,68 @@ export default function Navbar() {
   );
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md py-3 text-black" : "bg-transparent py-5"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto py-2 flex justify-between items-center px-4">
-        {/* Logo - Visible on both mobile and desktop */}
-        <Link href="/" className="flex items-center">
-          <div className="text-3xl font-bold flex items-center">
-            <Image
-              src={logo}
-              alt="Logo"
-              width={120}
-              height={80}
-              className="rounded"
+    <>
+      <nav
+        className={`fixed w-full z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white shadow-md py-3 text-black border-b-4 border-transparent"
+            : "bg-transparent py-5 border-b-4 border-transparent"
+        }`}
+        style={{
+          borderImage: scrolled
+            ? "linear-gradient(to right, #4facfe, #00f2fe) 1"
+            : "none",
+        }}
+      >
+        <div className="max-w-7xl mx-auto py-2 flex items-center justify-between px-4">
+          {/* Left Navigation */}
+          <div className="hidden md:flex items-center space-x-2 flex-1 justify-start">
+            <NavItem href="/" label="Home" isActive={activePage === "home"} />
+            <NavItem
+              href="#products"
+              label="Products"
+              isActive={activePage === "products"}
+            />
+            <NavItem
+              href="#about"
+              label="About"
+              isActive={activePage === "about"}
             />
           </div>
-        </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-2">
-          <NavItem href="/" label="Home" isActive={activePage === "home"} />
-          <NavItem
-            href="#products"
-            label="Products"
-            isActive={activePage === "products"}
-          />
-          <NavItem
-            href="#about"
-            label="About"
-            isActive={activePage === "about"}
-          />
-          <NavItem
-            href="#contact"
-            label="Client & Partners"
-            isActive={activePage === "Client & Partners"}
-          />
-          <NavItem href="#blog" label="Blog" isActive={activePage === "blog"} />
-          <NavItem
-            href="#contact"
-            label="Contact"
-            isActive={activePage === "contact"}
-          />
+          {/* Logo - Centered */}
+          <div className="flex justify-center">
+            <Link href="/" className="flex items-center">
+              <div className="text-3xl font-bold flex items-center">
+                <Image
+                  src={logo}
+                  alt="Logo"
+                  width={120}
+                  height={80}
+                  className="rounded"
+                />
+              </div>
+            </Link>
+          </div>
+
+          {/* Right Navigation */}
+          <div className="hidden md:flex items-center space-x-2 flex-1 justify-end">
+            <NavItem
+              href="#contact"
+              label="Client & Partners"
+              isActive={activePage === "Client & Partners"}
+            />
+            <NavItem
+              href="#blog"
+              label="Blog"
+              isActive={activePage === "blog"}
+            />
+            <NavItem
+              href="#footer" // Updated to point to the footer
+              label="Contact"
+              isActive={activePage === "contact"}
+            />
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -140,106 +159,103 @@ export default function Navbar() {
             </svg>
           )}
         </button>
-      </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md py-4 px-4 flex flex-col space-y-2">
-          {/* Mobile Logo */}
-          <div className="flex justify-center mb-4">
-            <Image
-              src={logo}
-              alt="Logo"
-              width={100}
-              height={70}
-              className="rounded"
-            />
-          </div>
-          
-          <Link
-            href="/"
-            className={`nav-link py-2 px-3 rounded-md ${
-              activePage === "home" ? "font-bold bg-black/5" : ""
-            }`}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Home
-          </Link>
-          <Link
-            href="#products"
-            className={`nav-link py-2 px-3 rounded-md ${
-              activePage === "products" ? "font-bold bg-black/5" : ""
-            }`}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Products
-          </Link>
-          <Link
-            href="#about"
-            className={`nav-link py-2 px-3 rounded-md ${
-              activePage === "about" ? "font-bold bg-black/5" : ""
-            }`}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            About
-          </Link>
-          <Link
-            href="#contact"
-            className={`nav-link py-2 px-3 rounded-md ${
-              activePage === "Client & Partners" ? "font-bold bg-black/5" : ""
-            }`}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Client & Partners
-          </Link>
-          <Link
-            href="#blog"
-            className={`nav-link py-2 px-3 rounded-md ${
-              activePage === "blog" ? "font-bold bg-black/5" : ""
-            }`}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Blog
-          </Link>
-          <Link
-            href="#contact"
-            className={`nav-link py-2 px-3 rounded-md ${
-              activePage === "contact" ? "font-bold bg-black/5" : ""
-            }`}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Contact
-          </Link>
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md py-4 px-4 flex flex-col space-y-2">
+            {/* Mobile Logo */}
+            <div className="flex justify-center mb-4">
+              <Image
+                src={logo}
+                alt="Logo"
+                width={100}
+                height={70}
+                className="rounded"
+              />
+            </div>
 
-          {/* Mobile Social Icons */}
-          <div className="flex items-center justify-center space-x-6 py-4 border-t mt-2">
             <Link
-              href="#"
-              className="social-icon text-black hover:opacity-75 transition-opacity text-xl"
+              href="/"
+              className={`nav-link py-2 px-3 rounded-md ${
+                activePage === "home" ? "font-bold bg-black/5" : ""
+              }`}
+              onClick={() => setMobileMenuOpen(false)}
             >
-              <FaTwitter />
+              Home
             </Link>
             <Link
-              href="#"
-              className="social-icon text-black hover:opacity-75 transition-opacity text-xl"
+              href="#products"
+              className={`nav-link py-2 px-3 rounded-md ${
+                activePage === "products" ? "font-bold bg-black/5" : ""
+              }`}
+              onClick={() => setMobileMenuOpen(false)}
             >
-              <FaDiscord />
+              Products
             </Link>
             <Link
-              href="#"
-              className="social-icon text-black hover:opacity-75 transition-opacity text-xl"
+              href="#about"
+              className={`nav-link py-2 px-3 rounded-md ${
+                activePage === "about" ? "font-bold bg-black/5" : ""
+              }`}
+              onClick={() => setMobileMenuOpen(false)}
             >
-              <FaFacebook />
+              About
             </Link>
             <Link
-              href="#"
-              className="social-icon text-black hover:opacity-75 transition-opacity text-xl"
+              href="#contact"
+              className={`nav-link py-2 px-3 rounded-md ${
+                activePage === "Client & Partners" ? "font-bold bg-black/5" : ""
+              }`}
+              onClick={() => setMobileMenuOpen(false)}
             >
-              <FaLinkedin />
+              Client & Partners
             </Link>
+            <Link
+              href="#blog"
+              className={`nav-link py-2 px-3 rounded-md ${
+                activePage === "blog" ? "font-bold bg-black/5" : ""
+              }`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Blog
+            </Link>
+            <Link
+              href="#footer" // Updated to point to the footer
+              className={`nav-link py-2 px-3 rounded-md ${
+                activePage === "contact" ? "font-bold bg-black/5" : ""
+              }`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contact
+            </Link>
+
+            {/* Mobile Social Icons */}
+            <div className="flex items-center justify-center space-x-6 py-4 border-t mt-2">
+              <Link
+                href="#"
+                className="social-icon text-black hover:opacity-75 transition-opacity text-xl"
+              >
+                <FaTwitter />
+              </Link>
+
+              <Link
+                href="#"
+                className="social-icon text-black hover:opacity-75 transition-opacity text-xl"
+              >
+                <FaFacebook />
+              </Link>
+              <Link
+                href="#"
+                className="social-icon text-black hover:opacity-75 transition-opacity text-xl"
+              >
+                <FaLinkedin />
+              </Link>
+            </div>
           </div>
-        </div>
-      )}
-    </nav>
+        )}
+      </nav>
+
+   
+    </>
   );
 }

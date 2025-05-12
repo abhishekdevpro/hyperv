@@ -118,6 +118,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth;
   }
   .no-visible-scrollbar {
     scrollbar-width: none;
