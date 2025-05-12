@@ -10,7 +10,7 @@ const clientsData = {
     'Bank of America',
     'Wells Fargo',
     'First Citizens Bank',
-    'Fannie Mae & Freddie Mac',
+    'Fannie Mae & Freddie Mac&apos;s',
   ],
   healthcare: [
     'BlueCross BlueShield (BCBS)',
@@ -166,7 +166,7 @@ export default function ClientsPartners() {
           >
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed px-4">
               At Hyper V Solutions, we take pride in building solutions that empower institutions, 
-              governments, and businesses across sectors. Over the years, we've had the privilege 
+              governments, and businesses across sectors. Over the years, we&apos;ve had the privilege 
               of serving some of the most respected and influential organizations in the world. 
               These trusted relationships reflect our commitment to innovation, integrity, and execution.
             </p>
