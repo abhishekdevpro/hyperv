@@ -70,26 +70,11 @@ export default function Navbar() {
             : "none",
         }}
       >
-        <div className="max-w-7xl mx-auto py-2 flex items-center justify-between px-4">
-          {/* Left Navigation */}
-          <div className="hidden md:flex items-center space-x-2 flex-1 justify-start">
-            <NavItem href="/" label="Home" isActive={activePage === "home"} />
-            <NavItem
-              href="#products"
-              label="Products"
-              isActive={activePage === "products"}
-            />
-            <NavItem
-              href="#about"
-              label="About"
-              isActive={activePage === "about"}
-            />
-          </div>
-
-          {/* Logo - Centered */}
-          <div className="flex justify-center">
-            <Link href="/" className="flex items-center">
-              <div className="text-3xl font-bold flex items-center">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <Link href="/" className="flex items-center">
                 <Image
                   src={logo}
                   alt="Logo"
@@ -97,165 +82,168 @@ export default function Navbar() {
                   height={80}
                   className="rounded"
                 />
+              </Link>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-4">
+              <NavItem href="/" label="Home" isActive={activePage === "home"} />
+              <NavItem
+                href="#products"
+                label="Products"
+                isActive={activePage === "products"}
+              />
+              <NavItem
+                href="#about"
+                label="About"
+                isActive={activePage === "about"}
+              />
+              <NavItem
+                href="/clients-partners"
+                label="Client & Partners"
+                isActive={activePage === "clients-partners"}
+              />
+              <NavItem
+                href="/blog"
+                label="Blog"
+                isActive={activePage === "blog"}
+              />
+              <NavItem
+                href="#footer"
+                label="Contact"
+                isActive={activePage === "contact"}
+              />
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button
+                onClick={toggleMobileMenu}
+                className={`p-2 rounded-md ${
+                  !scrolled ? "text-white" : "text-black"
+                }`}
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg">
+              <div className="px-4 py-3 space-y-1">
+                <Link
+                  href="/"
+                  className={`block py-2 px-3 rounded-md ${
+                    activePage === "home" ? "bg-black/5 font-bold" : ""
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link
+                  href="#products"
+                  className={`block py-2 px-3 rounded-md ${
+                    activePage === "products" ? "bg-black/5 font-bold" : ""
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Products
+                </Link>
+                <Link
+                  href="#about"
+                  className={`block py-2 px-3 rounded-md ${
+                    activePage === "about" ? "bg-black/5 font-bold" : ""
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <Link
+                  href="/clients-partners"
+                  className={`block py-2 px-3 rounded-md ${
+                    activePage === "clients-partners" ? "bg-black/5 font-bold" : ""
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Client & Partners
+                </Link>
+                <Link
+                  href="/blog"
+                  className={`block py-2 px-3 rounded-md ${
+                    activePage === "blog" ? "bg-black/5 font-bold" : ""
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Blog
+                </Link>
+                <Link
+                  href="#footer"
+                  className={`block py-2 px-3 rounded-md ${
+                    activePage === "contact" ? "bg-black/5 font-bold" : ""
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+
+                {/* Mobile Social Icons */}
+                <div className="flex items-center space-x-6 py-4 border-t mt-2">
+                  <Link
+                    href="#"
+                    className="text-black hover:opacity-75 transition-opacity text-xl"
+                  >
+                    <FaTwitter />
+                  </Link>
+                  <Link
+                    href="#"
+                    className="text-black hover:opacity-75 transition-opacity text-xl"
+                  >
+                    <FaFacebook />
+                  </Link>
+                  <Link
+                    href="#"
+                    className="text-black hover:opacity-75 transition-opacity text-xl"
+                  >
+                    <FaLinkedin />
+                  </Link>
+                </div>
               </div>
-            </Link>
-          </div>
-
-          {/* Right Navigation */}
-          <div className="hidden md:flex items-center space-x-2 flex-1 justify-end">
-            <NavItem
-              href="#contact"
-              label="Client & Partners"
-              isActive={activePage === "Client & Partners"}
-            />
-            <NavItem
-              href="#blog"
-              label="Blog"
-              isActive={activePage === "blog"}
-            />
-            <NavItem
-              href="#footer" // Updated to point to the footer
-              label="Contact"
-              isActive={activePage === "contact"}
-            />
-          </div>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className={`md:hidden ${!scrolled ? "text-white" : "text-black"}`}
-          onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+            </div>
           )}
-        </button>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md py-4 px-4 flex flex-col space-y-2">
-            {/* Mobile Logo */}
-            <div className="flex justify-center mb-4">
-              <Image
-                src={logo}
-                alt="Logo"
-                width={100}
-                height={70}
-                className="rounded"
-              />
-            </div>
-
-            <Link
-              href="/"
-              className={`nav-link py-2 px-3 rounded-md ${
-                activePage === "home" ? "font-bold bg-black/5" : ""
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="#products"
-              className={`nav-link py-2 px-3 rounded-md ${
-                activePage === "products" ? "font-bold bg-black/5" : ""
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Products
-            </Link>
-            <Link
-              href="#about"
-              className={`nav-link py-2 px-3 rounded-md ${
-                activePage === "about" ? "font-bold bg-black/5" : ""
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="#contact"
-              className={`nav-link py-2 px-3 rounded-md ${
-                activePage === "Client & Partners" ? "font-bold bg-black/5" : ""
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Client & Partners
-            </Link>
-            <Link
-              href="#blog"
-              className={`nav-link py-2 px-3 rounded-md ${
-                activePage === "blog" ? "font-bold bg-black/5" : ""
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Blog
-            </Link>
-            <Link
-              href="#footer" // Updated to point to the footer
-              className={`nav-link py-2 px-3 rounded-md ${
-                activePage === "contact" ? "font-bold bg-black/5" : ""
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
-
-            {/* Mobile Social Icons */}
-            <div className="flex items-center justify-center space-x-6 py-4 border-t mt-2">
-              <Link
-                href="#"
-                className="social-icon text-black hover:opacity-75 transition-opacity text-xl"
-              >
-                <FaTwitter />
-              </Link>
-
-              <Link
-                href="#"
-                className="social-icon text-black hover:opacity-75 transition-opacity text-xl"
-              >
-                <FaFacebook />
-              </Link>
-              <Link
-                href="#"
-                className="social-icon text-black hover:opacity-75 transition-opacity text-xl"
-              >
-                <FaLinkedin />
-              </Link>
-            </div>
-          </div>
-        )}
+        </div>
       </nav>
-
-   
     </>
   );
 }

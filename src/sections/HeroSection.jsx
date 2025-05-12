@@ -29,11 +29,11 @@ export default function HeroSection() {
           loop
           muted
           playsInline
-          className="absolute top-[-20%] w-full h-[140%] object-cover"
+          className="absolute top-[-20%] w-full h-[140%] object-fit"
           style={{ filter: 'brightness(0.4)' }}
         >
           <source
-            src="/HyperV Hero video.mp4"
+            src="/Hero.mp4"
             type="video/mp4"
           />
         </video>
