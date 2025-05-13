@@ -319,7 +319,9 @@ animation:L 10s linear infinite;
   }
 
   .page {
-    line-height: 20vh;
+	   width: 50%;
+    height: 50%;
+    line-height: 10vh;
     font-size: 1vh;
   }
 

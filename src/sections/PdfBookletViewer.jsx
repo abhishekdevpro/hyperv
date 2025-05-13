@@ -63,7 +63,7 @@ const PdfBookletViewer = () => {
 
         <input type="checkbox" id="one" />
         <div id="page1" className="page">
-          <div className="front"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0001.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
+          <div className="front"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0001.jpg"     className="w-full h-auto object-fill" alt="Page 1 Front" /></div>
           <div className="back"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0002.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
           <label htmlFor="one"></label>
         </div>
