@@ -33,7 +33,7 @@ export default function HeroSection() {
           style={{ filter: 'brightness(0.4)' }}
         >
           <source
-            src="/Hero.mp4"
+            src="/hero.mp4"
             type="video/mp4"
           />
         </video>
@@ -46,7 +46,7 @@ export default function HeroSection() {
         <div className="text-center space-y-4 sm:space-y-6 md:space-y-8">
           <div className="flex flex-col items-center text-center px-2 sm:px-4 py-2 sm:py-4 md:py-6 gap-2 sm:gap-4 md:gap-6">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold leading-tight px-2 sm:px-4 mt-10">
-              Your AI-Powered Partner in HR, EdTech & Workforce Innovation
+              Your AI-Powered Partner in HR, EdTech & AI driven Incubator
             </h1>
 <br/><br/><br/>
             {/* <div className="h-auto px-2">

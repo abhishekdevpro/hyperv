@@ -71,48 +71,68 @@ export default function Navbar() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex-shrink-0">
+          <div className="flex items-center justify-between w-full">
+            {/* Mobile Logo */}
+            <div className="md:hidden flex-shrink-0">
               <Link href="/" className="flex items-center">
                 <Image
                   src={logo}
                   alt="Logo"
-                  width={120}
-                  height={80}
+                  width={100}
+                  height={60}
                   className="rounded"
                 />
               </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-4">
-              <NavItem href="/" label="Home" isActive={activePage === "home"} />
-              <NavItem
-                href="#products"
-                label="Products"
-                isActive={activePage === "products"}
-              />
-              <NavItem
-                href="#about"
-                label="About"
-                isActive={activePage === "about"}
-              />
-              <NavItem
-                href="/clients-partners"
-                label="Client & Partners"
-                isActive={activePage === "clients-partners"}
-              />
-              <NavItem
-                href="/blog"
-                label="Blog"
-                isActive={activePage === "blog"}
-              />
-              <NavItem
-                href="#footer"
-                label="Contact"
-                isActive={activePage === "contact"}
-              />
+            <div className="hidden md:flex items-center justify-between w-full">
+              {/* Left Navigation Tabs */}
+              <div className="flex items-center space-x-4">
+                <NavItem href="/" label="Home" isActive={activePage === "home"} />
+                <NavItem
+                  href="/products"
+                  label="Products"
+                  isActive={activePage === "products"}
+                />
+                <NavItem
+                  href="#about"
+                  label="About"
+                  isActive={activePage === "about"}
+                />
+              </div>
+
+              {/* Center Logo */}
+              <div className="flex-shrink-0 flex-grow flex justify-center">
+                <Link href="/" className="flex items-center">
+                  <Image
+                    src={logo}
+                    alt="Logo"
+                    width={120}
+                    height={80}
+                    className="rounded"
+                  />
+                </Link>
+              </div>
+
+              {/* Right Navigation Tabs */}
+              <div className="flex items-center space-x-4">
+                <NavItem
+                  href="/clients-partners"
+                  label="Client & Partners"
+                  isActive={activePage === "clients-partners"}
+                />
+                <NavItem
+                  href="/blog"
+                  label="Blog"
+                  isActive={activePage === "blog"}
+                />
+                <NavItem
+                  href="#footer"
+                  label="Contact"
+                  isActive={activePage === "contact"}
+                />
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
