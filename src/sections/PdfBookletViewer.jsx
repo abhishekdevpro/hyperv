@@ -1,63 +1,71 @@
 'use client';
-import { useState } from 'react';
-
 import './PdfBookletViewer.css';
+import { useEffect } from 'react';
 
 const PdfBookletViewer = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  useEffect(() => {
+    const bookElement = document.getElementById('book');
+    if (bookElement) {
+      bookElement.addEventListener('click', function (e) {
+        const element = this;
+        element.style.pointerEvents = 'none';
+        setTimeout(() => {
+          element.style.pointerEvents = '';
+        }, 2000);
+      });
+    }
+  }, []);
 
   return (
-    <div className="book-container">
-      <h1 className="book-title">Hyper-V Solutions Booklet</h1>
-      <div className="book">
-        <div className="book__pg-shadow"></div>
-        <div className="book__pg">
-          <div className="book__pg--front">
-            <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0001.jpg" alt="Page 1 Front" />
-          </div>
-          <div className="book__pg--back">
-            <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0002.jpg" alt="Page 1 Back" />
-          </div>
+    <div className=" flex flex-col items-center justify-center min-h-screen bg-gray-200">
+     
+     <h1 className="text-4xl font-extrabold text-blue-600 mb-4">
+       Explore the <span className="text-gray-800">Hyper-V Solutions Booklet 2025</span>
+     </h1>
+     <h2 className="text-2xl text-gray-700 mb-6">
+       Flip through the pages to discover cutting-edge solutions and insights!
+     </h2>
+
+      <div id="book" className="rou">
+        <input type="checkbox" id="six" />
+        <div id="page6" className="page">
+          <div className="front"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0011.jpg"    className="w-full h-auto object-contain"alt="Page 1 Front" /></div>
+          <div className="back"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0012.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
+          <label htmlFor="five"></label>
         </div>
-        <div className="book__pg book__pg--2">
-          <div className="book__pg--front">
-            <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0003.jpg" alt="Page 2 Front" />
-          </div>
-          <div className="book__pg--back">
-            <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0004.jpg" alt="Page 2 Back" />
-          </div>
+        <input type="checkbox" id="five" />
+        <div id="page5" className="page">
+          <div className="front"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0009.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
+          <div className="back"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0010.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
+          <label htmlFor="five"></label>
         </div>
-        <div className="book__pg book__pg--3">
-          <div className="book__pg--front">
-            <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0005.jpg" alt="Page 3 Front" />
-          </div>
-          <div className="book__pg--back">
-            <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0006.jpg" alt="Page 3 Back" />
-          </div>
+
+        <input type="checkbox" id="four" />
+        <div id="page4" className="page">
+          <div className="front"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0007.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
+          <div className="back"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0008.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
+          <label htmlFor="four"></label>
         </div>
-        <div className="book__pg book__pg--4">
-          <div className="book__pg--front">
-            <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0007.jpg" alt="Page 4 Front" />
-          </div>
-          <div className="book__pg--back">
-            <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0008.jpg" alt="Page 4 Back" />
-          </div>
+
+        <input type="checkbox" id="three" />
+        <div id="page3" className="page">
+          <div className="front">   <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0005.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
+          <div className="back"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0006.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
+          <label htmlFor="three"></label>
         </div>
-        <div className="book__pg book__pg--5">
-          <div className="book__pg--front">
-            <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0009.jpg" alt="Page 5 Front" />
-          </div>
-          <div className="book__pg--back">
-            <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0010.jpg" alt="Page 5 Back" />
-          </div>
+
+        <input type="checkbox" id="two" />
+        <div id="page2" className="page">
+          <div className="front"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0003.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
+          <div className="back"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0004.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
+          <label htmlFor="two"></label>
         </div>
-        <div className="book__pg book__pg--6">
-          <div className="book__pg--front">
-            <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0011.jpg" alt="Page 6 Front" />
-          </div>
-          <div className="book__pg--back">
-            <img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0012.jpg" alt="Page 6 Back" />
-          </div>
+
+        <input type="checkbox" id="one" />
+        <div id="page1" className="page">
+          <div className="front"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0001.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
+          <div className="back"><img src="/bookletimages/Hyper-V-Solutions-Booklet-2025_page-0002.jpg"     className="w-full h-auto object-contain" alt="Page 1 Front" /></div>
+          <label htmlFor="one"></label>
         </div>
       </div>
     </div>

@@ -1,384 +1,340 @@
-:root {
-	--hue: 223;
-	--bg: hsl(var(--hue),10%,90%);
-	--fg: hsl(var(--hue),10%,10%);
-	--primary: hsl(var(--hue),90%,55%);
-	--primary-l: hsl(var(--hue),90%,65%);
-	--primary-d: hsl(var(--hue),90%,45%);
-	--white: hsl(var(--hue),10%,100%);
-	--white-d: hsl(var(--hue),10%,45%);
+#book {
+  width:50vw;
+  height:70vh;
+/*   outline:1px solid black; */
+  
+  
+  perspective:75vw;
 }
 
-.book-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	min-height: 80vh;
-	background: linear-gradient(135deg, 
-		hsl(var(--hue), 20%, 95%) 0%,
-		hsl(var(--hue), 30%, 85%) 50%,
-		hsl(var(--hue), 40%, 75%) 100%
-	);
-	padding: 2rem;
-	position: relative;
-	overflow: hidden;
+#book:before {
+  width:1%;
+  height:100%;
+ 
+  content:'';
+  position:absolute;
+  left:49%;
+  top:0;
+ 
 }
 
-.book-container::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: radial-gradient(
-		circle at center,
-		transparent 0%,
-		rgba(255, 255, 255, 0.1) 100%
-	);
-	pointer-events: none;
+.page {
+  width:50%;
+  height:100%;
+  background:radial-gradient(circle at 0% 100%, #777, #ddd 70%);
+ 
+  
+  position:absolute;
+  left:50%;
+  top:0;
+  transition:z-index .01s linear 1s, transform 2s linear;
+  transform-origin:0% 50%;
+  z-index:5;
+  cursor:pointer;
+      
+  font-family:monospace;
+  text-align:center;
+  line-height:50vh;
 }
 
-.book-title {
-	text-align: center;
-	color: var(--primary-d);
-	font-size: 2.8em;
-	margin-bottom: 2.5rem;
-	background: linear-gradient(135deg, 
-		hsl(var(--hue), 90%, 45%) 0%,
-		hsl(var(--hue), 90%, 35%) 50%,
-		hsl(var(--hue), 90%, 25%) 100%
-	);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	text-shadow: 2px 2px 4px rgba(118, 103, 103, 0.1);
-	font-weight: 700;
-	letter-spacing: 1px;
-	position: relative;
+/* #page5 {
+  transform-origin:-1% 50% !important;
+} */
+
+.front, .back {
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+    
+  font-family:monospace;
+  text-align:center;
+  line-height:50vh;
+  
+  opacity:0;
+  transition:opacity .1s linear 1s;
+}
+.front {
+  opacity:1;
+}
+.back {
+  transform:scaleX(-1);
 }
 
-.book-title::after {
-	content: '';
-	position: absolute;
-	bottom: -10px;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 100px;
-	height: 3px;
-	background: linear-gradient(90deg, 
-		transparent 0%,
-		var(--primary) 50%,
-		transparent 100%
-	);
+input {
+  visibility:hidden;
 }
 
-.book,
-.book__pg-shadow,
-.book__pg {
-	animation: cover 30s ease-in-out infinite;
-}
-.book {
-	background: linear-gradient(135deg, 
-		hsl(var(--hue), 90%, 65%) 0%,
-		hsl(var(--hue), 90%, 55%) 50%,
-		hsl(var(--hue), 90%, 45%) 100%
-	);
-	border-radius: 0.5em;
-	box-shadow:
-		0 0.5em 1em hsla(0,0%,0%,0.2),
-		0 0 0 0.25em var(--primary) inset,
-		0 0 2em rgba(0,0,0,0.1);
-	padding: 0.5em;
-	perspective: 37.5em;
-	position: relative;
-	width: 32em;
-	height: 23em;
-	transform: translate3d(0,0,0);
-	transform-style: preserve-3d;
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: transform 0.3s ease;
+label {
+  width:100%;
+  height:100%;
+  z-index:99;
+  position:absolute;
+  left:0;
+  top:0;
+  margin:0;
+  padding:0;
+/*   pointer-events:none; */
+/*   visibility:hidden; */
+/*   background:red; */
 }
 
-.book:hover {
-	transform: translate3d(0, -5px, 0);
-	box-shadow:
-		0 0.75em 1.5em hsla(0,0%,0%,0.25),
-		0 0 0 0.25em var(--primary) inset,
-		0 0 3em rgba(0,0,0,0.15);
+input:checked + .page {
+  transform:rotateY(-180deg); 
 }
 
-@media (max-width: 768px) {
-	.book {
-		width: 24em;
-		height: 17.25em;
-	}
+input:checked + .page .front {
+  opacity:0;  
+}
+input:checked + .page .back {
+  opacity:1;  
 }
 
-@media (max-width: 480px) {
-	.book {
-		width: 20em;
-		height: 14.375em;
-	}
+#five:checked + .page {
+  z-index:5;
 }
-
-.book__pg-shadow,
-.book__pg {
-	position: absolute;
-	left: 0.25em;
-	width: calc(50% - 0.25em);
-	height: calc(100% - 0.5em);
-	top: 0.25em;
+#four:checked + .page {
+  z-index:4;
 }
-.book__pg-shadow {
-	animation-name: shadow;
-	background-image: linear-gradient(-45deg,hsla(0,0%,0%,0) 50%,hsla(0,0%,0%,0.3) 50%);
-	filter: blur(0.25em);
-	transform: scaleY(0);
-	transform-origin: 100% 0%;
+#three:checked + .page {
+  z-index:3;
 }
-.book__pg {
-	animation-name: pg1;
-	background: linear-gradient(135deg, 
-		hsl(var(--hue), 10%, 100%) 0%,
-		hsl(var(--hue), 10%, 95%) 50%,
-		hsl(var(--hue), 10%, 90%) 100%
-	);
-	transform-origin: 100% 50%;
-	transform-style: preserve-3d;
-	box-shadow: 0 0 1em rgba(0,0,0,0.1);
+#two:checked + .page {
+  z-index:2;
 }
-.book__pg img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-	display: block;
-	transition: transform 0.3s ease;
-}
-.book__pg:hover img {
-	transform: scale(1.02);
-}
-.book__pg--front,
-.book__pg--back {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	backface-visibility: hidden;
-	overflow: hidden;
-}
-.book__pg--back {
-	transform: rotateY(180deg);
-}
-.book__pg--2,
-.book__pg--3,
-.book__pg--4 {
-	background-image:
-		repeating-linear-gradient(hsl(var(--hue),10%,10%) 0 0.125em,hsla(var(--hue),10%,10%,0) 0.125em 0.5em),
-		linear-gradient(90deg,hsla(var(--hue),10%,90%,0) 87.5%,hsl(var(--hue),10%,90%));
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 2.5em 4.125em, 100% 100%;
-	backface-visibility: hidden;
-}
-.book__pg--2 {
-	animation-name: pg2;
-	z-index: 1;
-}
-.book__pg--3 {
-	animation-name: pg3;
-	z-index: 2;
-}
-.book__pg--4 {
-	animation-name: pg4;
-	z-index: 3;
-}
-.book__pg--5 {
-	animation-name: pg5;
-	z-index: 4;
-}
-.book__pg--6 {
-	animation-name: pg6;
-	z-index: 5;
+#one:checked + .page {
+  z-index:1;
 }
 
 
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
-	:root {
-		--bg: hsl(var(--hue),10%,30%);
-		--fg: hsl(var(--hue),10%,90%);
-	}
-}
 
-/* Animations */
+/* interior pages styles */
+#page1 .front {
+  font-size:2vh;
+  letter-spacing:2vh;
+  line-height:50vh;
+  font-weight:900;
+  text-align:right;
+  background:radial-gradient(circle at 70% 50%, black 50%, #222 40%);
+  color:magenta;
+  animation:cover 10s linear infinite;
+}
 @keyframes cover {
-	from, 5%, 45%, 55%, 95%, to {
-		animation-timing-function: ease-out;
-		background-color: var(--primary-l);
-	}
-	10%, 40%, 60%, 90% {
-		animation-timing-function: ease-in;
-		background-color: var(--primary-d);
-	}
+  20% { color:lime }
+  40% { color:dodgerblue }
+  60% { color:gold }
+  80% { color:cyan }
 }
-@keyframes shadow {
-	from, 10.01%, 20.01%, 30.01%, 40.01% {
-		animation-timing-function: ease-in;
-		transform: translate3d(0,0,1px) scaleY(0) rotateY(0);
-	}
-	5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% {
-		animation-timing-function: ease-out;
-		transform: translate3d(0,0,1px) scaleY(0.2) rotateY(90deg);
-	}
-	10%, 20%, 30%, 40%, 50%, to {
-		animation-timing-function: ease-out;
-		transform: translate3d(0,0,1px) scaleY(0) rotateY(180deg);
-	}
-	50.01%, 60.01%, 70.01%, 80.01%, 90.01% {
-		animation-timing-function: ease-in;
-		transform: translate3d(0,0,1px) scaleY(0) rotateY(180deg);
-	}
-	60%, 70%, 80%, 90%, to {
-		animation-timing-function: ease-out;
-		transform: translate3d(0,0,1px) scaleY(0) rotateY(0);
-	}
+
+#page1 .back {
+  font-size:25vh;
+  color:white;
+  text-shadow:-10px 0px magenta, 10px 0px cyan;
+  background:#222;
+  animation:a 3s linear infinite;
 }
-@keyframes pg1 {
-	from, to {
-		animation-timing-function: ease-in-out;
-		transform: translate3d(0,0,1px) rotateY(0deg);
-	}
-	10%, 15% {
-		animation-timing-function: ease-out;
-		transform: translate3d(0,0,1px) rotateY(180deg);
-	}
-	20%, 80% {
-		animation-timing-function: ease-in;
-		transform: translate3d(0,0,1px) rotateY(180deg);
-	}
-	85%, 90% {
-		animation-timing-function: ease-in-out;
-		transform: translate3d(0,0,1px) rotateY(180deg);
-	}
+@keyframes a {
+  45% { color:white; }
+  50% { color:#222; }
+  55% { color:white; }
 }
-@keyframes pg2 {
-	from, to {
-		animation-timing-function: ease-in;
-		background-color: var(--white-d);
-		transform: translate3d(0,0,1px) rotateY(0.3deg);
-	}
-	5%, 10% {
-		animation-timing-function: ease-in-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(0.3deg);
-	}
-	20%, 25% {
-		animation-timing-function: ease-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(179.9deg);
-	}
-	30%, 70% {
-		animation-timing-function: ease-in;
-		background-color: var(--white-d);
-		transform: translate3d(0,0,1px) rotateY(179.9deg);
-	}
-	75%, 80% {
-		animation-timing-function: ease-in-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(179.9deg);
-	}
-	90%, 95% {
-		animation-timing-function: ease-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(0.3deg);
-	}
+
+#page2 .front {
+  font-size:25vh;
+  font-family:serif;
+  font-weight:900;
+  background: dodgerblue;
+animation:L 10s linear infinite;
 }
-@keyframes pg3 {
-	from, 10%, 90%, to {
-		animation-timing-function: ease-in;
-		background-color: var(--white-d);
-		transform: translate3d(0,0,1px) rotateY(0.2deg);
-	}
-	15%, 20% {
-		animation-timing-function: ease-in-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(0.2deg);
-	}
-	30%, 35% {
-		animation-timing-function: ease-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(179.8deg);
-	}
-	40%, 60% {
-		animation-timing-function: ease-in;
-		background-color: var(--white-d);
-		transform: translate3d(0,0,1px) rotateY(179.8deg);
-	}
-	65%, 70% {
-		animation-timing-function: ease-in-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(179.8deg);
-	}
-	80%, 85% {
-		animation-timing-function: ease-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(0.2deg);
-	}
+@keyframes L {
+  50% { color:dodgerblue; background:white; }
 }
-@keyframes pg4 {
-	from, 20%, 80%, to {
-		animation-timing-function: ease-in;
-		background-color: var(--white-d);
-		transform: translate3d(0,0,1px) rotateY(0.1deg);
-	}
-	25%, 30% {
-		animation-timing-function: ease-in-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(0.1deg);
-	}
-	40%, 45% {
-		animation-timing-function: ease-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(179.7deg);
-	}
-	50% {
-		animation-timing-function: ease-in;
-		background-color: var(--white-d);
-		transform: translate3d(0,0,1px) rotateY(179.7deg);
-	}
-	55%, 60% {
-		animation-timing-function: ease-in-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(179.7deg);
-	}
-	70%, 75% {
-		animation-timing-function: ease-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(0.1deg);
-	}
+
+#page2 .back {
+  font-size:25vh;
+  font-weight:100;
+  font-family:sans-serif;
+  text-shadow:5px 5px 0px white, 7px 7px 0px;
+  background:white;
+  color:tomato;
+  animation:p 5s linear infinite;
 }
-@keyframes pg5 {
-	from, 30%, 70%, to {
-		animation-timing-function: ease-in;
-		background-color: var(--white-d);
-		transform: translate3d(0,0,1px) rotateY(0);
-	}
-	35%, 40% {
-		animation-timing-function: ease-in-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(0deg);
-	}
-	50% {
-		animation-timing-function: ease-in-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(179.6deg);
-	}
-	60%, 65% {
-		animation-timing-function: ease-out;
-		background-color: var(--white);
-		transform: translate3d(0,0,1px) rotateY(0);
-	}
+
+@keyframes p {
+  50% { text-shadow:13px 13px 0px white, 16px 16px 0px; } 
+}
+
+#page3 .front {
+  font-size:25vh;
+  font-family:serif;
+  font-weight:900;
+  background: dodgerblue;
+animation:L 10s linear infinite;
+}
+@keyframes L {
+  50% { color:dodgerblue; background:white; }
+}
+
+#page3 .back {
+  font-size:25vh;
+  font-weight:100;
+  font-family:sans-serif;
+  text-shadow:5px 5px 0px white, 7px 7px 0px;
+  background:white;
+  color:tomato;
+  animation:p 5s linear infinite;
+}
+
+@keyframes p {
+  50% { text-shadow:13px 13px 0px white, 16px 16px 0px; } 
+}
+
+
+
+#page4 .front {
+  font-size:25vh;
+  font-family:serif;
+  font-weight:900;
+  background: dodgerblue;
+animation:L 10s linear infinite;
+}
+@keyframes L {
+  50% { color:dodgerblue; background:white; }
+}
+
+#page4 .back {
+  font-size:25vh;
+  font-weight:100;
+  font-family:sans-serif;
+  text-shadow:5px 5px 0px white, 7px 7px 0px;
+  background:white;
+  color:tomato;
+  animation:p 5s linear infinite;
+}
+
+@keyframes p {
+  50% { text-shadow:13px 13px 0px white, 16px 16px 0px; } 
+}
+#page5 .front {
+  color:gold;
+  font-size:25vh;
+  font-weight:900;
+  font-family:serif;
+  background:#222;
+  text-shadow:24px 24px purple;
+  animation:slide 10s linear infinite;
+  }
+
+@keyframes slide {
+  25% { text-shadow:-24px 24px purple; }
+  50% { text-shadow:-24px -24px purple; }
+  75% { text-shadow:24px -24px purple; }
+  100% { text-shadow:24px 24px purple; }
+}
+
+#page5 .back {
+  font-size:2vh;
+  letter-spacing:2vh;
+  line-height:50vh;
+  font-weight:900;
+  text-align:left;
+  background:radial-gradient(circle at 30% 50%, black 50%, #222 40%);
+  color:magenta;
+  padding-left:2vh;
+  animation:cover 10s linear infinite;
+}
+
+
+#page6 .front {
+  color:gold;
+  font-size:25vh;
+  font-weight:900;
+  font-family:serif;
+  background:#222;
+  text-shadow:24px 24px purple;
+  animation:slide 10s linear infinite;
+  }
+
+@keyframes slide {
+  25% { text-shadow:-24px 24px purple; }
+  50% { text-shadow:-24px -24px purple; }
+  75% { text-shadow:24px -24px purple; }
+  100% { text-shadow:24px 24px purple; }
+}
+
+#page6 .back {
+  font-size:2vh;
+  letter-spacing:2vh;
+  line-height:50vh;
+  font-weight:900;
+  text-align:left;
+  background:radial-gradient(circle at 30% 50%, black 50%, #222 40%);
+  color:magenta;
+  padding-left:2vh;
+  animation:cover 10s linear infinite;
+}
+
+/* Add media query for mobile responsiveness */
+@media (max-width: 768px) {
+  #book {
+    width: 90vw;
+    height: 60vh;
+    perspective: 100vw;
+  }
+
+  .page {
+    width: 100%;
+    height: 100%;
+    line-height: 30vh;
+    font-size: 1.5vh;
+  }
+
+  .front, .back {
+    line-height: 30vh;
+    font-size: 1.5vh;
+  }
+
+  #page1 .front, #page1 .back,
+  #page2 .front, #page2 .back,
+  #page3 .front, #page3 .back,
+  #page4 .front, #page4 .back,
+  #page5 .front, #page5 .back,
+  #page6 .front, #page6 .back {
+    font-size: 2vh;
+    line-height: 40vh;
+  }
+
+  label {
+    pointer-events: auto;
+  }
+}
+
+/* Add media query for very small screens */
+@media (max-width: 480px) {
+  #book {
+    width: 100vw;
+    height: 50vh;
+    perspective: 120vw;
+  }
+
+  .page {
+    line-height: 20vh;
+    font-size: 1vh;
+  }
+
+  .front, .back {
+    line-height: 20vh;
+    font-size: 1vh;
+  }
+
+  #page1 .front, #page1 .back,
+  #page2 .front, #page2 .back,
+  #page3 .front, #page3 .back,
+  #page4 .front, #page4 .back,
+  #page5 .front, #page5 .back,
+  #page6 .front, #page6 .back {
+    font-size: 1.5vh;
+    line-height: 30vh;
+  }
 }

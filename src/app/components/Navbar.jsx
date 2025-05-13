@@ -96,8 +96,8 @@ export default function Navbar() {
                   isActive={activePage === "products"}
                 />
                 <NavItem
-                  href="#about"
-                  label="About"
+                  href=""
+                  label="About Us"
                   isActive={activePage === "about"}
                 />
               </div>
@@ -208,7 +208,7 @@ export default function Navbar() {
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  About
+                  About us
                 </Link>
                 <Link
                   href="/clients-partners"

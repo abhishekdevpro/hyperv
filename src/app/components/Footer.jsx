@@ -73,18 +73,14 @@ export default function Footer() {
                   Our Blog
                 </Link>
               </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white">
-                  Contact Us
-                </Link>
-              </li>
+          
             </ul>
           </div>
 
           {/* Location */}
           <div className="col-span-1">
             <h3 className="text-lg font-semibold mb-4">We Are Here</h3>
-            <div className="flex items-start">
+            <div className="flex items-start mb-4">
               <div className="mr-2 mt-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -108,10 +104,19 @@ export default function Footer() {
                 </svg>
               </div>
               <p className="text-gray-400 text-sm">
-              PO Box 1084,<br />
-Columbia, SC 29202 &<br />
-1225 Laurel St., Columbia, SC 29201.
-               
+                PO Box 1084,<br />
+                Columbia, SC 29202 &<br />
+                1225 Laurel St., Columbia, SC 29201.
+              </p>
+            </div>
+            <div className="flex items-start">
+              <div className="ml-2 mt-1">
+             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+</svg>
+              </div>
+              <p className="text-gray-400 text-sm ml-2">
+                 <a href="mailto:info@hypervsolutions.net" className="text-gray-400 hover:text-white">info@hypervsolutions.net</a>
               </p>
             </div>
           </div>

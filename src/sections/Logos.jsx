@@ -44,9 +44,9 @@ export default function NotableUsers() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {companies.map((company) => (
+          {companies.map((company, index) => (
             <div
-              key={company.name}
+              key={`${company.name}-${index}`} // Combine name and index to ensure uniqueness
               className="flex items-center justify-center h-24 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition duration-300"
             >
               <div className="relative w-32 h-12">

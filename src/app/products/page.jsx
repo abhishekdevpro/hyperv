@@ -3,6 +3,7 @@ import React from 'react';
 
 import ProductsAndTools from '@/sections/Product';
 import Footer from '../components/Footer';
+import UpcomingProjects from '@/sections/UpcomingProjects';
 
 const Products = () => {
   return (
@@ -31,6 +32,9 @@ const Products = () => {
         <ProductsAndTools />
       </section>
 
+  <section className="mb-12">
+      <UpcomingProjects />
+      </section>
       {/* Upcoming Products Section */}
       <section className="mb-12 bg-white shadow-md rounded-lg p-8">
         <h2 className="text-4xl font-bold text-gray-800 mb-6 text-center">

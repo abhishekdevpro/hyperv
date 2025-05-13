@@ -1,8 +1,11 @@
+'use client';
+import { useState, useEffect } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SplashScreen from "./components/SplashScreen"; // Create a separate splash screen component
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,31 +17,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title:
-    "Hyper V Solutions | Launch Secure Digital Products with Our In-House Dev Team",
-  description:
-    "Hyper V Solutions | Launch Secure Digital Products with Our In-House Dev Team",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Script id="chatling-config">
-          {`window.chtlConfig = { chatbotId: "7533359378" }`}
-        </Script>
-        <Script
-          async
-          data-id="7533359378"
-          id="chtl-script"
-          src="https://chatling.ai/js/embed.js"
-        />
-        <Navbar />
-        {children}
-        <Footer />
+        <SplashScreen>
+          <Script id="chatling-config">
+            {`window.chtlConfig = { chatbotId: "7533359378" }`}
+          </Script>
+          <Script
+            async
+            data-id="7533359378"
+            id="chtl-script"
+            src="https://chatling.ai/js/embed.js"
+          />
+          <Navbar />
+          {children}
+          <Footer />
+        </SplashScreen>
       </body>
     </html>
   );

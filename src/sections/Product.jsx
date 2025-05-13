@@ -16,6 +16,7 @@ const ProductCard = ({
   screenshot,
   youtubeLink,
   pdfUrl,
+  companylogo,
 }) => {
   const [showPdfPopup, setShowPdfPopup] = useState(false);
   const [pdfError, setPdfError] = useState(false);
@@ -88,10 +89,18 @@ const ProductCard = ({
             </div>
           </div>
           <div className="w-full md:w-1/2 flex items-start group">
+        
             <div className="transform transition-transform duration-500 group-hover:scale-110">
               {logo}
             </div>
             <div className="ml-4">
+                  <Image
+              src={companylogo}
+              alt="Company Logo"
+              width={96} // Set the width explicitly
+              height={96} // Set the height explicitly
+              className="h-12 w-40  shadow-md mb-4"
+            />
               <h3 className="font-semibold text-lg text-gray-900 group-hover:text-purple-600 transition-colors duration-500 hover:underline decoration-2 decoration-purple-400">{title}</h3>
               {Array.isArray(description) && description.length > 0 ? (
                 <ul className="list-disc pl-5 text-gray-700 space-y-2 mt-2 text-sm">
@@ -186,6 +195,13 @@ const ProductCard = ({
               {logo}
             </div>
             <div className="ml-4">
+                <Image
+              src={companylogo}
+              alt="Company Logo"
+              width={96} // Set the width explicitly
+              height={64} // Set the height explicitly
+              className=" shadow-md mb-4"
+            />
               <h3 className="font-semibold text-lg text-gray-900 group-hover:text-purple-600 transition-colors duration-500 hover:underline decoration-2 decoration-purple-400">{title}</h3>
               {Array.isArray(description) && description.length > 0 ? (
                 <ul className="list-disc pl-5 text-gray-700 space-y-2 mt-2 text-sm">
@@ -386,6 +402,7 @@ const ProductCard = ({
 const ProductsAndTools = () => {
   const products = [
     {
+      companylogo: "/Novajobs Logo.png",
       logo: (
         <div className="bg-blue-100 p-3 rounded-lg">
           <svg
@@ -417,6 +434,7 @@ const ProductsAndTools = () => {
       pdfUrl: "https://drive.google.com/uc?export=view&id=1924uZupUppvghGvBcJjfj_W6J8c8nMbm",
     },
     {
+       companylogo: "/Ultra_Aura Logo.png",
       logo: (
         <div className="bg-purple-100 p-3 rounded-lg">
           <svg
@@ -448,6 +466,7 @@ const ProductsAndTools = () => {
       pdfUrl: "https://www.orimi.com/pdf-test.pdf",
     },
     {
+       companylogo: "/logo- Nova home care.png",
       logo: (
         <div className="bg-indigo-100 p-3 rounded-lg">
           <svg
@@ -479,6 +498,7 @@ const ProductsAndTools = () => {
       pdfUrl: "https://www.orimi.com/pdf-test.pdf",
     },
     {
+       companylogo: "/paradigm.png",
       logo: (
         <div className="bg-green-100 p-3 rounded-lg">
           <svg
@@ -527,6 +547,7 @@ const ProductsAndTools = () => {
           {products.map((product, index) => (
             <ProductCard
               key={index}
+              companylogo={product.companylogo}
               logo={product.logo}
               title={product.title}
               description={product.description}
