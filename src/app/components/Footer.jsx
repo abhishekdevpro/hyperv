@@ -42,8 +42,8 @@ export default function Footer() {
               </Link>
             </div>
             <div className="flex space-x-4 mt-4">
-              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/New-dbe-logo-300x300.png" alt="DBE Logo" className="h-12 w-12" />
-              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/SBE-Logo-1-300x300.png" alt="SBE Logo" className="h-12 w-12" />
+              <img src="/certifications/dbe-logo.png" alt="DBE Logo" className="h-12 w-12" />
+              <img src="/certifications/sbe-logo.png" alt="SBE Logo" className="h-12 w-12" />
             </div>
           </div>
 
