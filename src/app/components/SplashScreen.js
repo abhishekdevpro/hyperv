@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState, useEffect } from "react";
 
 export default function SplashScreen({ children }) {
@@ -7,7 +7,7 @@ export default function SplashScreen({ children }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
-    }, 3000); // Show splash screen for 3 seconds
+    }, 1000); // Show splash screen for 3 seconds
 
     return () => clearTimeout(timer); // Cleanup timer on component unmount
   }, []);
@@ -16,7 +16,9 @@ export default function SplashScreen({ children }) {
     return (
       <div className="splash-screen">
         <div className="loader"></div>
-        <h1>Welcome to <span>Hyper V Solutions</span></h1>
+        <h1>
+          Welcome to <span>Hyper V Solutions</span>
+        </h1>
         <style jsx>{`
           .splash-screen {
             display: flex;
@@ -24,7 +26,7 @@ export default function SplashScreen({ children }) {
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #4facfe,rgb(199, 0, 254));
+            background: linear-gradient(135deg, #4facfe, rgb(199, 0, 254));
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;

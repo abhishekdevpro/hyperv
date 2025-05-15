@@ -9,8 +9,9 @@ import logo5 from "../assets/logo5.png";
 import logo6 from "../assets/logo6.png";
 import logo7 from "../assets/logo7.png";
 import logo8 from "../assets/logo8.png";
-import logo9 from "../assets/image.png";
-
+import logo11 from "../assets/image.png";
+import logo9 from "../assets/logo9.png";
+import logo10 from "../assets/logo10.png";
 const companies = [
   { name: "Sony", logo: logo1 },
   // { name: "Sony", logo: newlogo },
@@ -22,11 +23,11 @@ const companies = [
   { name: "Sony", logo: logo6 },
   { name: "Sony", logo: logo7 },
   { name: "Sony", logo: logo8 },
-    { name: "Sony", logo: logo9 },
- 
-  { name: "Sony", logo: logo2 },
-  
-  { name: "Sony", logo: logo4 },
+  { name: "Sony", logo: logo9 },
+
+  { name: "Sony", logo: logo10 },
+
+  { name: "Sony", logo: logo11 },
 ];
 
 export default function NotableUsers() {

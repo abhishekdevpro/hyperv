@@ -19,7 +19,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500 p-3 ">
+    <div className="bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500 p-3 pb-8 pl-8 pr-8  ">
       <section className="relative w-full min-h-screen px-4 sm:px-6 md:px-12 lg:px-24 bg-gray-950 text-white overflow-hidden flex items-center justify-center rounded-xl">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -29,12 +29,9 @@ export default function HeroSection() {
             muted
             playsInline
             className="absolute top-[-20%] w-full h-[140%] object-fit"
-            style={{ filter: 'brightness(0.4)' }}
+            style={{ filter: "brightness(0.4)" }}
           >
-            <source
-              src="/hero.mp4"
-              type="video/mp4"
-            />
+            <source src="/hero.mp4" type="video/mp4" />
           </video>
         </div>
 
@@ -46,23 +43,41 @@ export default function HeroSection() {
               </h1>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12 md:mt-16 lg:mt-20 max-w-5xl w-full">
-                <div className="flex flex-col items-center text-center p-4 sm:p-5 md:p-6 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/15 transition-all duration-300">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">💼 Smart Hiring</h3>
-                  <p className="text-sm sm:text-base md:text-lg text-gray-300">AI Resume Builder, Automated Matching, English & Arabic CV support.</p>
+                <div className="flex flex-col items-center text-center p-4 sm:p-5 md:p-6 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/50 transition-all duration-300 hover:-translate-y-1">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">
+                    💼 Smart Hiring
+                  </h3>
+                  <p className="text-sm sm:text-base md:text-lg text-gray-300">
+                    AI Resume Builder, Automated Matching, English & Arabic CV
+                    support.
+                  </p>
                 </div>
-                <div className="flex flex-col items-center text-center p-4 sm:p-5 md:p-6 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/15 transition-all duration-300">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">🎓 Scalable Learning</h3>
-                  <p className="text-sm sm:text-base md:text-lg text-gray-300">Skill Assessments, Auto Cover Letters & EdTech tools that grow with you.</p>
+                <div className="flex flex-col items-center text-center p-4 sm:p-5 md:p-6 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/50 transition-all duration-300 hover:-translate-y-1">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">
+                    🎓 Scalable Learning
+                  </h3>
+                  <p className="text-sm sm:text-base md:text-lg text-gray-300">
+                    Skill Assessments, Auto Cover Letters & EdTech tools that
+                    grow with you.
+                  </p>
                 </div>
-                <div className="flex flex-col items-center text-center p-4 sm:p-5 md:p-6 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/15 transition-all duration-300">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">🔗 Seamless Integration</h3>
-                  <p className="text-sm sm:text-base md:text-lg text-gray-300">3rd-party job APIs, community, notifications, email & admin dashboards.</p>
+                <div className="flex flex-col items-center text-center p-4 sm:p-5 md:p-6 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/50 transition-all duration-300 hover:-translate-y-1">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">
+                    🔗 Seamless Integration
+                  </h3>
+                  <p className="text-sm sm:text-base md:text-lg text-gray-300">
+                    3rd-party job APIs, community, notifications, email & admin
+                    dashboards.
+                  </p>
                 </div>
               </div>
             </div>
 
             <div className="pt-4 sm:pt-6 md:pt-8">
-              <a href="/products" className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-4 rounded-full text-base sm:text-lg md:text-xl font-medium transition-all duration-300 inline-block shadow-lg hover:shadow-xl hover:scale-105">
+              <a
+                href="/products"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-4 rounded-full text-base sm:text-lg md:text-xl font-medium transition-all duration-300 inline-block shadow-lg hover:shadow-xl hover:scale-105"
+              >
                 Explore All Products →
               </a>
             </div>
