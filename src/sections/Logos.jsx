@@ -39,8 +39,7 @@ export default function NotableUsers() {
             Trusted by Industry Leaders
           </h2>
           <p className="text-lg text-white max-w-3xl mx-auto">
-            Join the growing list of companies leveraging our solutions to
-            innovate, streamline, and scale their business operations.
+            Trusted by industry leaders to streamline operations, drive innovation, and scale impact through AI.
           </p>
         </div>
 

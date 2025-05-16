@@ -39,8 +39,7 @@ const CommunitySection = () => {
           <div className="text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3">Join Our Community</h2>
             <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 max-w-md mx-auto px-2">
-              Already using any of our products? Join our discord community stay
-              in sync, chat with us and share your thoughts
+             Already using our products? Join our Discord community to stay connected, share feedback, and engage with us in real-time.
             </p>
 
             <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base font-medium py-2 px-4 sm:px-6 rounded-full flex items-center mx-auto transition-colors duration-300">

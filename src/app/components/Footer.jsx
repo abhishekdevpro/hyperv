@@ -24,8 +24,7 @@ export default function Footer() {
               </Link>
             </div>
             <p className="text-gray-400 text-sm mb-6">
-              Crafting digital products with a global impact, used by millions
-              around the world!
+              Building AI-driven digital products that empower millions across the globe.
             </p>
             <div className="flex space-x-4">
               <Link href="https://www.youtube.com/@HyperVSolutions" target="_blank" rel="noopener noreferrer">
@@ -42,8 +41,8 @@ export default function Footer() {
               </Link>
             </div>
             <div className="flex space-x-4 mt-4">
-              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/New-dbe-logo-300x300.png" alt="DBE Logo" className="h-12 w-12" />
-              <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/SBE-Logo-1-300x300.png" alt="SBE Logo" className="h-12 w-12" />
+              <img src="https://abhishekdevpro-nova-home-care-fe.vercel.app/assets/logo2-06lVAt2c.png" alt="DBE Logo" className="h-12 w-auto" />
+              {/* <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/SBE-Logo-1-300x300.png" alt="SBE Logo" className="h-12 w-12" /> */}
             </div>
           </div>
 
@@ -111,7 +110,7 @@ export default function Footer() {
             </div>
             <div className="flex items-start">
               <div className="ml-2 mt-1">
-             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-envelope" viewBox="0 0 16 16">
   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
 </svg>
               </div>
