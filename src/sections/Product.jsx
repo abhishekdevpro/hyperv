@@ -611,12 +611,12 @@ const ProductsAndTools = () => {
           </svg>
         </div>
       ),
-      title: "NovaJobs.us – All-in-One Hiring & Career Platform",
+      title: "NovaJobs – Job Portal",
       description: [
         "AI-powered job portal with smart automation",
         "Resume building, job search, and career guidance for seekers",
-        "Job posting, hiring tools, and white-label options for employers",
-        "Built to scale – fast, secure, and fully customizable",
+        "Post jobs, manage hiring, and access white-label recruitment solutions tailored for employers.",
+        "Designed to scale — secure, flexible, and enterprise-ready.",
       ],
       viewProductLink: "https://novajobs.us/",
       screenshot: novajobs,
@@ -644,12 +644,12 @@ const ProductsAndTools = () => {
           </svg>
         </div>
       ),
-      title: "UltraAura – AI-Enabled End-to-End EdTech Platform.",
+      title: "UltraAura – Education Platform",
       description: [
-        "Online courses taught by industry experts",
+        "Industry-led online courses with personalized mentoring and interactive learning.",
         "One-on-one mentoring & interactive student sessions",
-        "AI-powered certification, resume building & job assistance",
-        "Whitelabel-ready for institutes, trainers, and education partners",
+        "AI-powered certifications, resume tools, and career guidance.",
+        "Fully white-label enabled for institutions, educators, and training partners.",
       ],
       viewProductLink: "https://ultraaura.education",
       screenshot: ultraaura,
@@ -676,12 +676,12 @@ const ProductsAndTools = () => {
           </svg>
         </div>
       ),
-      title: "NovaHome.care – Your Personal Care Advisor at Home",
+      title: "NovaHome Care – Your Personal Care Advisor at Home",
       description: [
-        "Find trusted caregivers for senior, child, or pet care",
-        "Book housekeeping, tutoring, or DME services near you",
+        "Connect with trusted caregivers for seniors, children, or pets.",
+        "Book personalized care services — from housekeeping to medical support — in your area",
         "Personalized care matching via your ZIP code",
-        "Built for families, partners, and professional caregivers",
+        "Built for families, partners, and caregiving professionals.",
       ],
       viewProductLink: "https://novahome.care/",
       screenshot: novahomecare,
@@ -708,12 +708,12 @@ const ProductsAndTools = () => {
           </svg>
         </div>
       ),
-      title: "ParadigmShifts.life – Your Personal Wellness Companion",
+      title: "Paradigm Shift – Your Personal Wellness Companion",
       description: [
-        "Helping individuals and businesses achieve wellness",
-        "Specialized in Drug & Alcohol, Rehabilitation & Retention, and Monitoring",
-        "Tailored support for behavioral health, corporate wellness, and workforce re-entry",
-        "Talk to Aria, your AI wellness advisor for guided support",
+        "Empowering individuals and businesses through AI-driven wellness.",
+        "Specialized in substance use recovery, retention programs, and behavioral monitoring.",
+        "Personalized support for behavioral health, workplace wellness, and reintegration.",
+        "Meet Aria — your AI companion for wellness and recovery.",
       ],
       viewProductLink: "https://paradigmshifts.life/",
       screenshot: paradigmshift,
