@@ -17,21 +17,23 @@ const ProductCard = ({
   youtubeLink,
   pdfUrl,
   companylogo,
+  link,
 }) => {
   const [showPdfPopup, setShowPdfPopup] = useState(false);
   const [pdfError, setPdfError] = useState(false);
+  console.log(">>>>>>>pdfUrl:", pdfUrl, title);
 
-  useEffect(() => {
-    if (showPdfPopup) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+  // useEffect(() => {
+  //   if (showPdfPopup) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "unset";
+  //   }
 
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [showPdfPopup]);
+  //   return () => {
+  //     document.body.style.overflow = "unset";
+  //   };
+  // }, [showPdfPopup]);
 
   const getPdfViewerUrl = () => {
     if (!pdfUrl) {
@@ -45,8 +47,10 @@ const ProductCard = ({
 
   const handleBookletClick = (e) => {
     e.preventDefault();
+    let url = getPdfViewerUrl();
+    window.open(url, "_blank").focus();
     setPdfError(false);
-    setShowPdfPopup(true);
+    // setShowPdfPopup(true);
   };
 
   const closePdfPopup = () => {
@@ -56,10 +60,10 @@ const ProductCard = ({
 
   return (
     <div className="flex flex-col md:flex-row items-stretch gap-6 rounded-xl shadow-md bg-white p-6 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:bg-gradient-to-br hover:from-white hover:to-purple-50 group">
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-pink-500/10 transition-all duration-500"></div>
+      {/* <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-pink-500/10 transition-all duration-500"></div>
       <div className="absolute inset-0 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
       <div className="absolute inset-0 rounded-xl shadow-[0_0_30px_rgba(168,85,247,0.3)] opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-1"></div>
-      <div className="absolute inset-0 rounded-xl shadow-[0_0_30px_rgba(236,72,153,0.3)] opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-x-1"></div>
+      <div className="absolute inset-0 rounded-xl shadow-[0_0_30px_rgba(236,72,153,0.3)] opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-x-1"></div> */}
       {isReversed ? (
         <>
           <div className="w-full md:w-1/2 group relative">
@@ -123,13 +127,15 @@ const ProductCard = ({
               {logo}
             </div>
             <div className="ml-4">
-              <Image
-                src={companylogo}
-                alt="Company Logo"
-                width={96} // Set the width explicitly
-                height={96} // Set the height explicitly
-                className="h-12 w-40  shadow-md mb-4"
-              />
+              <Link href={link}>
+                <Image
+                  src={companylogo}
+                  alt="Company Logo"
+                  width={96} // Set the width explicitly
+                  height={96} // Set the height explicitly
+                  className="h-12 w-40  shadow-md mb-4"
+                />
+              </Link>
               <h3 className="font-semibold text-lg text-gray-900 group-hover:text-purple-600 transition-colors duration-500 hover:underline decoration-2 decoration-purple-400">
                 {title}
               </h3>
@@ -255,13 +261,15 @@ const ProductCard = ({
               {logo}
             </div>
             <div className="ml-4">
-              <Image
-                src={companylogo}
-                alt="Company Logo"
-                width={96} // Set the width explicitly
-                height={64} // Set the height explicitly
-                className=" shadow-md mb-4"
-              />
+              <Link href={link}>
+                <Image
+                  src={companylogo}
+                  alt="Company Logo"
+                  width={96} // Set the width explicitly
+                  height={64} // Set the height explicitly
+                  className=" shadow-md mb-4"
+                />
+              </Link>
               <h3 className="font-semibold text-lg text-gray-900 group-hover:text-purple-600 transition-colors duration-500 hover:underline decoration-2 decoration-purple-400">
                 {title}
               </h3>
@@ -593,6 +601,7 @@ const ProductsAndTools = () => {
   const products = [
     {
       companylogo: "/Novajobs Logo.png",
+      link: "https://novajobs.us/",
       logo: (
         <div className="bg-blue-100 p-3 rounded-lg">
           <svg
@@ -626,6 +635,7 @@ const ProductsAndTools = () => {
     },
     {
       companylogo: "/Ultra_Aura Logo.png",
+      link: "https://ultraaura.education/",
       logo: (
         <div className="bg-purple-100 p-3 rounded-lg">
           <svg
@@ -658,6 +668,7 @@ const ProductsAndTools = () => {
     },
     {
       companylogo: "/logo- Nova home care.png",
+      link: "https://novahome.care/",
       logo: (
         <div className="bg-indigo-100 p-3 rounded-lg">
           <svg
@@ -690,6 +701,7 @@ const ProductsAndTools = () => {
     },
     {
       companylogo: "/paradigm.png",
+      link: "https://paradigmshifts.life/",
       logo: (
         <div className="bg-green-100 p-3 rounded-lg">
           <svg
@@ -739,6 +751,7 @@ const ProductsAndTools = () => {
             <ProductCard
               key={index}
               companylogo={product.companylogo}
+              link={product.link}
               logo={product.logo}
               title={product.title}
               description={product.description}
