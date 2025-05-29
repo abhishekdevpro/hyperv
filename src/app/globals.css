@@ -125,9 +125,47 @@
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   .no-visible-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  
+}
+/* Hide Google Translate top banner */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+
+/* Hide the full dropdown UI */
+#google_translate_element .goog-te-gadget {
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+/* Hide all text and default icons */
+.goog-te-gadget span,
+.goog-te-gadget img {
+  display: none !important;
+}
+
+/* Style translate widget as a globe icon */
+#google_translate_element .goog-te-gadget-simple {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Use emoji globe icon or replace with custom */
+#google_translate_element .goog-te-gadget-simple::before {
+  content: "🌐";
+  font-size: 20px;
+  color: #333;
 }
