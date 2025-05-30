@@ -1,10 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaTwitter, FaDiscord, FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
-import logo from "@/assets/logo.jpg"
+import {
+  FaTwitter,
+  FaDiscord,
+  FaFacebook,
+  FaLinkedin,
+  FaYoutube,
+} from "react-icons/fa";
+import logo from "@/assets/logo.jpg";
 export default function Footer() {
   return (
-
     <footer className="bg-gray-900 text-white py-12 px-4" id="footer">
       <div className="w-full mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -24,24 +29,57 @@ export default function Footer() {
               </Link>
             </div>
             <p className="text-gray-400 text-sm mb-6">
-              Building AI-driven digital products that empower millions across the globe.
+              Building AI-driven digital products that empower millions across
+              the globe.
             </p>
             <div className="flex space-x-4">
-              <Link href="https://www.youtube.com/@HyperVSolutions" target="_blank" rel="noopener noreferrer">
-                <FaYoutube className="text-[#FF0000] hover:opacity-80 cursor-pointer" size={20} />
+              <Link
+                href="https://www.youtube.com/@HyperVSolutions"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaYoutube
+                  className="text-[#FF0000] hover:opacity-80 cursor-pointer"
+                  size={20}
+                />
               </Link>
-              <Link href="https://www.linkedin.com/company/hyperv-solutions" target="_blank" rel="noopener noreferrer">
-                <FaLinkedin className="text-[#0077B5] hover:opacity-80 cursor-pointer" size={20} />
+              <Link
+                href="https://www.linkedin.com/company/hyperv-solutions"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin
+                  className="text-[#0077B5] hover:opacity-80 cursor-pointer"
+                  size={20}
+                />
               </Link>
-              <Link href="https://twitter.com/hypervsolutions" target="_blank" rel="noopener noreferrer">
-                <FaTwitter className="text-[#1DA1F2] hover:opacity-80 cursor-pointer" size={20} />
+              <Link
+                href="https://twitter.com/hypervsolutions"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter
+                  className="text-[#1DA1F2] hover:opacity-80 cursor-pointer"
+                  size={20}
+                />
               </Link>
-              <Link href="https://www.facebook.com/hypervsolutions" target="_blank" rel="noopener noreferrer">
-                <FaFacebook className="text-[#4267B2] hover:opacity-80 cursor-pointer" size={20} />
+              <Link
+                href="https://www.facebook.com/hypervsolutions"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook
+                  className="text-[#4267B2] hover:opacity-80 cursor-pointer"
+                  size={20}
+                />
               </Link>
             </div>
             <div className="flex space-x-4 mt-4">
-              <img src="https://abhishekdevpro-nova-home-care-fe.vercel.app/assets/logo2-06lVAt2c.png" alt="DBE Logo" className="h-12 w-auto" />
+              <img
+                src="https://abhishekdevpro-nova-home-care-fe.vercel.app/assets/logo2-06lVAt2c.png"
+                alt="DBE Logo"
+                className="h-12 w-auto"
+              />
               {/* <img src="https://hypervsolutions.net/wp-content/uploads/2022/10/SBE-Logo-1-300x300.png" alt="SBE Logo" className="h-12 w-12" /> */}
             </div>
           </div>
@@ -64,7 +102,7 @@ export default function Footer() {
           </div>
 
           {/* Support Links */}
-          <div className="col-span-1">
+          {/* <div className="col-span-1">
             <h3 className="text-lg font-semibold mb-4">Support</h3>
             <ul className="space-y-2">
               <li>
@@ -73,6 +111,32 @@ export default function Footer() {
                 </Link>
               </li>
           
+            </ul>
+          </div> */}
+          {/* Support Links */}
+          <div className="col-span-1">
+            <h3 className="text-lg font-semibold mb-4">Support</h3>
+            <ul className="space-y-2 mb-4">
+              <Link
+                href="#"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-all duration-300 text-sm font-medium"
+              >
+                Book Free Consultation
+              </Link>
+
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Our Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://novajobs.us/user/community"
+                  className="text-gray-400 hover:text-white"
+                >
+                  Community
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -103,19 +167,32 @@ export default function Footer() {
                 </svg>
               </div>
               <p className="text-gray-400 text-sm">
-                PO Box 1084,<br />
+                PO Box 1084,
+                <br />
                 Columbia, SC 29202 &<br />
                 1225 Laurel St., Columbia, SC 29201.
               </p>
             </div>
             <div className="flex items-start">
               <div className="ml-2 mt-1">
-             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-envelope" viewBox="0 0 16 16">
-  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
-</svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-envelope"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                </svg>
               </div>
               <p className="text-gray-400 text-sm ml-2">
-                 <a href="mailto:info@hypervsolutions.net" className="text-gray-400 hover:text-white">info@hypervsolutions.net</a>
+                <a
+                  href="mailto:info@hypervsolutions.net"
+                  className="text-gray-400 hover:text-white"
+                >
+                  info@hypervsolutions.net
+                </a>
               </p>
             </div>
           </div>
@@ -124,8 +201,9 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex items-center">
-            <div className="flex-1 text-center text-gray-400 text-sm">© 2025 HyperV Solutions. All rights reserved</div>
-           
+            <div className="flex-1 text-center text-gray-400 text-sm">
+              © 2025 HyperV Solutions. All rights reserved
+            </div>
           </div>
         </div>
       </div>

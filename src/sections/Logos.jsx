@@ -39,7 +39,8 @@ export default function NotableUsers() {
             Trusted by Industry Leaders
           </h2>
           <p className="text-lg text-white max-w-3xl mx-auto">
-            Trusted by industry leaders to streamline operations, drive innovation, and scale impact through AI.
+            Trusted by industry leaders to streamline operations, drive
+            innovation, and scale impact through AI.
           </p>
         </div>
 
@@ -49,13 +50,13 @@ export default function NotableUsers() {
               key={`${company.name}-${index}`} // Combine name and index to ensure uniqueness
               className="flex items-center justify-center h-24 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition duration-300"
             >
-              <div className="relative w-32 h-12">
+              <div className="relative w-32 h-full">
                 <Image
                   src={company.logo}
                   alt={`${company.name} logo`}
                   layout="fill"
                   objectFit="contain"
-                  className="p-2"
+                  className="p-2 w-full h-full"
                 />
               </div>
             </div>
