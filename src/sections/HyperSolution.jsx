@@ -102,7 +102,7 @@ export default function HyperVSolutionsHeader() {
                group-hover:via-pink-500 group-hover:to-fuchsia-500"
           >
             Hyper V Solutions
-          <div className="mx-auto w-3/4 h-1 mt-3 bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500 mt-2"></div>
+            <div className="mx-auto w-3/4 h-1 mt-3 bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500 mt-2"></div>
           </h1>
         </div>
 
@@ -117,7 +117,7 @@ export default function HyperVSolutionsHeader() {
         <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
           <div className="absolute top-0 left-0 w-full h-full">
             <ReactPlayer
-              url="https://youtu.be/KnjONT1KG04"
+              url="https://youtu.be/Zr3BXE6Qf6U?feature=shared"
               width="100%"
               height="100%"
               controls={true}

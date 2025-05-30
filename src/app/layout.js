@@ -185,7 +185,7 @@ export default function RootLayout({ children }) {
         {/* Google Translate Globe Icon */}
         <div
           id="google_translate_element"
-          className="fixed top-4 right-4 z-[9999]"
+          className="fixed top-20 right-4 z-[9999]"
           title="Select Language"
         ></div>
 

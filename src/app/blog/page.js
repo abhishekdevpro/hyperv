@@ -7,8 +7,10 @@ const blogPosts = [
   {
     id: 1,
     title: "The Future of HR: How Automation is Reshaping Talent Acquisition",
-    excerpt: "Exploring how AI and automation are revolutionizing HR processes, from recruitment to onboarding, and why U.S. businesses are rapidly adopting these technologies.",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+    excerpt:
+      "Exploring how AI and automation are revolutionizing HR processes, from recruitment to onboarding, and why U.S. businesses are rapidly adopting these technologies.",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
     date: "March 20, 2024",
     author: "HR Tech Insights",
     category: "Human Resources",
@@ -20,40 +22,44 @@ Enter automation—a game-changing force in HR. Powered by artificial intelligen
 
 From automated resume screening and interview scheduling to bias mitigation, employee onboarding, and real-time analytics, automation reduces manual effort while increasing consistency and fairness. It allows hiring teams to focus more on strategic decisions, candidate relationships, and employer branding—rather than tedious paperwork and email follow-ups.
 
-And this shift is only accelerating. According to a 2024 SHRM survey, more than 72% of U.S. companies plan to increase investment in AI-driven recruitment technologies within the next 12 months.`
+And this shift is only accelerating. According to a 2024 SHRM survey, more than 72% of U.S. companies plan to increase investment in AI-driven recruitment technologies within the next 12 months.`,
   },
   {
     id: 2,
     title: "Building Scalable Applications",
-    excerpt: "Best practices for creating applications that can handle millions of users.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
+    excerpt:
+      "Best practices for creating applications that can handle millions of users.",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
     date: "March 10, 2024",
     author: "Jane Smith",
-    category: "Development"
+    category: "Development",
   },
   {
     id: 3,
     title: "AI in Software Development",
-    excerpt: "How artificial intelligence is revolutionizing the way we build software.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop",
+    excerpt:
+      "How artificial intelligence is revolutionizing the way we build software.",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop",
     date: "March 5, 2024",
     author: "Mike Johnson",
-    category: "AI"
-  }
+    category: "AI",
+  },
 ];
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-gray-50 pt-10">
+    <main className="min-h-screen bg-gray-300 pt-10">
       {/* Hero Section */}
-    
-        <div className="container mx-auto px-4 py-16 text-center ">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Insights, updates, and stories from our team about technology, development, and innovation.
-          </p>
-        </div>
-    
+
+      <div className="container mx-auto px-4 py-16 text-center ">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Insights, updates, and stories from our team about technology,
+          development, and innovation.
+        </p>
+      </div>
 
       {/* Blog Posts Grid */}
       <div className="container mx-auto px-4 py-16">
@@ -83,7 +89,9 @@ export default function BlogPage() {
                 </h2>
                 <p className="text-gray-600 mb-4">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500">By {post.author}</span>
+                  <span className="text-sm text-gray-500">
+                    By {post.author}
+                  </span>
                   <Link
                     href={`/blog/${post.id}`}
                     className="text-blue-600 hover:text-blue-800 font-medium"
@@ -98,4 +106,4 @@ export default function BlogPage() {
       </div>
     </main>
   );
-} 
+}
