@@ -134,6 +134,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SplashScreen from "./components/SplashScreen";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -205,24 +206,85 @@ export default function RootLayout({ children }) {
         </SplashScreen>
 
         {/* Info Popup */}
-        {showPopup && (
+        {/* {showPopup && (
           <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-[9999] bg-black/40 backdrop-blur-sm">
             <div className="bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500 text-white p-8 rounded-xl shadow-xl max-w-sm text-center">
               <h2 className="text-lg font-semibold">
-                HyperVSolutions now proudly serving
+                🌍 Global Launch Now Live – Pompano Beach & Hallandale Beach
+                Officially Onboard!
                 <br />
-                Pompano Beach & Hallandale Beach.
+                Hyper V Solutions is proud to introduce our AI-powered platforms
+                – NovaJobs and UltraAura Education – across the globe.
+                <br />
+                We’re honored to be official partners with the cities of Pompano
+                Beach and Hallandale Beach to bring local job seekers and
+                students into the future of work and learning.
+                <br />
+                👉 Tap below to explore your local platform and start your
+                journey today!
               </h2>
               <div className="mt-6 flex justify-center gap-4">
+                <Link href="https://pompanobeach.novajobs.us/">
+                  <button className="px-4 py-2 rounded bg-white text-[#0f4c81] font-bold hover:bg-gray-200">
+                    Visit Pompano Portal
+                  </button>
+                </Link>
+                <Link href=" https://hollandalebeach.novajobs.us/">
+                  <button className="px-4 py-2 rounded bg-white text-[#0f4c81] font-bold hover:bg-gray-200">
+                    Visit Hallandale Portal
+                  </button>
+                </Link>
                 <button
                   onClick={closePopup}
                   className="px-4 py-2 rounded bg-white text-[#0f4c81] font-bold hover:bg-gray-200"
                 >
-                  OK
+                  Close
                 </button>
+              </div>
+            </div>
+          </div>
+        )} */}
+        {showPopup && (
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+            <div className="bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500 text-white p-8 rounded-2xl shadow-2xl max-w-xl w-full">
+              <h2 className="text-xl font-bold mb-4 leading-relaxed">
+                🌍 Global Launch Now Live – Pompano Beach & Hallandale Beach
+                Officially Onboard!
+              </h2>
+              <p className="text-sm leading-relaxed mb-6">
+                Hyper V Solutions is proud to introduce our AI-powered platforms
+                – <strong>NovaJobs</strong> and{" "}
+                <strong>UltraAura Education</strong> – across the globe.
+                <br />
+                <br />
+                We’re honored to be official partners with the cities of Pompano
+                Beach and Hallandale Beach to bring local job seekers and
+                students into the future of work and learning.
+                <br />
+                <br />
+                👉 Tap below to explore your local platform and start your
+                journey today!
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <a
+                  href="https://pompanobeach.novajobs.us/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-blue-700 font-semibold px-5 py-2 rounded-lg shadow hover:bg-gray-100 transition"
+                >
+                  Visit Pompano Portal
+                </a>
+                <a
+                  href="https://hollandalebeach.novajobs.us/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-blue-700 font-semibold px-5 py-2 rounded-lg shadow hover:bg-gray-100 transition"
+                >
+                  Visit Hallandale Portal
+                </a>
                 <button
                   onClick={closePopup}
-                  className="px-4 py-2 rounded bg-white text-[#0f4c81] font-bold hover:bg-gray-200"
+                  className="bg-white text-red-600 font-semibold px-5 py-2 rounded-lg shadow hover:bg-red-100 transition"
                 >
                   Close
                 </button>
