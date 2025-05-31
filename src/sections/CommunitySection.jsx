@@ -45,7 +45,7 @@ const CommunitySection = () => {
               Already using our products? Join our HyperVsolutions community to
               stay connected, share feedback, and engage with us in real-time.
             </p>
-            <Link href=" https://novajobs.us/user/community">
+            <Link href="https://novajobs.us/community">
               <button className="pointer bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base font-medium py-2 px-4 sm:px-6 rounded-full flex items-center mx-auto transition-colors duration-300">
                 Join Now <span className="ml-2">👋</span>
               </button>
