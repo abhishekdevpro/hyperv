@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import logo from "@/assets/logo.jpg";
 import { useState } from "react";
+import ConsultancyPopup from "./ConsultancyPopup";
 
 // Enhanced Modal Example
 function EnhancedModal({ open, onClose, formData, onInputChange, onSubmit, errors, submitted }) {
@@ -262,7 +263,7 @@ export default function Footer() {
 
   return (
     <>
-      <EnhancedModal
+      {/* <EnhancedModal
         open={showModal}
         onClose={handleClose}
         formData={formData}
@@ -270,7 +271,8 @@ export default function Footer() {
         onSubmit={handleSubmit}
         errors={errors}
         submitted={submitted}
-      />
+      /> */}
+       <ConsultancyPopup isOpen={showModal} onClose={() => handleClose()} />
       <footer className="bg-gray-900 text-white py-12 px-4" id="footer">
         <div className="w-full mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
