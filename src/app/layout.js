@@ -83,16 +83,16 @@ export default function RootLayout({ children }) {
           <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
             <div className="bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500 text-white p-8 rounded-2xl shadow-2xl max-w-xl w-full">
               <h2 className="text-xl font-bold mb-4 leading-relaxed">
-                🌍 Global Launch Now Live – Pompano Beach & Hallandale Beach
+                🌍 Global Launch Now Live Pompano Beach & Hallandale Beach
                 Officially Onboard!
               </h2>
               <p className="text-sm leading-relaxed mb-6">
                 Hyper V Solutions is proud to introduce our AI-powered platforms
                 – <strong>NovaJobs</strong> and{" "}
-                <strong>UltraAura Education</strong> – across the globe.
+                <strong>UltraAura Education</strong> across the globe.
                 <br />
                 <br />
-                We're honored to be official partners with the cities of Pompano
+                We are honored to be official partners with the cities of Pompano
                 Beach and Hallandale Beach to bring local job seekers and
                 students into the future of work and learning.
                 <br />
