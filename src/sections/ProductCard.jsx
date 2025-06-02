@@ -539,7 +539,7 @@ const ProductCard = ({
         </div>
       )} */}
       {showPopup && (
-        <div className="fixed z-50 inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div className="fixed z-[1000] inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl h-auto relative flex flex-col transform transition-all duration-300 ease-in-out animate-fadeIn">
             {/* Header with Tabs */}
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
