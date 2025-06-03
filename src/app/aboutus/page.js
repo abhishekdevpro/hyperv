@@ -28,7 +28,7 @@ export default function AboutUs() {
 
   return (
     <div className=" text-gray-900 px-6 md:px-12 py-12 max-w-7xl mx-auto min-h-screen bg-gradient-to-t from-white to-gray-300">
-      <section className="text-center mb-12 mt-8">
+      <section className="text-center mb-4 mt-8">
         <h1 className="text-4xl font-bold mb-4 text-blue-700">
           About HyperV Solutions
         </h1>
@@ -39,7 +39,7 @@ export default function AboutUs() {
         </p>
       </section>
 
-      <section className="mb-12">
+      <section className="mb-4">
         <h2 className="text-2xl font-semibold text-blue-600 mb-4">
           Who We Are
         </h2>
@@ -49,7 +49,7 @@ export default function AboutUs() {
         </p>
       </section>
 
-      <section className="mb-12">
+      <section className="mb-4">
         <h2 className="text-2xl font-semibold text-blue-600 mb-4">
           What We Build
         </h2>
@@ -113,7 +113,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <section className="mb-12">
+      <section className="mb-4">
         <h2 className="text-2xl font-semibold text-blue-600 mb-4">
           Upcoming Projects
         </h2>
@@ -133,7 +133,7 @@ export default function AboutUs() {
         </ul>
       </section>
 
-      <section className="mb-12">
+      <section className="mb-4">
         <h2 className="text-2xl font-semibold text-blue-600 mb-4">
           Our Vision
         </h2>
@@ -150,7 +150,7 @@ export default function AboutUs() {
         </ul>
       </section>
 
-      <section className="mb-12">
+      <section className="mb-4">
         <h2 className="text-2xl font-semibold text-blue-600 mb-4">
           Our Locations
         </h2>
@@ -167,7 +167,7 @@ export default function AboutUs() {
         </p>
       </section>
 
-      <section className="mb-12">
+      <section className="mb-4">
         <h2 className="text-2xl font-semibold text-blue-600 mb-4">
           Why HyperV Solutions
         </h2>
