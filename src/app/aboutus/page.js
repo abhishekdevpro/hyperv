@@ -40,7 +40,7 @@ export default function AboutUs() {
       </section>
 
       <section className="mb-4">
-        <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+        <h2 className="text-2xl font-semibold text-blue-600 mb-2">
           Who We Are
         </h2>
         <p>
@@ -50,7 +50,7 @@ export default function AboutUs() {
       </section>
 
       <section className="mb-4">
-        <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+        <h2 className="text-2xl font-semibold text-blue-600 mb-2">
           What We Build
         </h2>
 
@@ -114,7 +114,7 @@ export default function AboutUs() {
       </section>
 
       <section className="mb-4">
-        <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+        <h2 className="text-2xl font-semibold text-blue-600 mb-2">
           Upcoming Projects
         </h2>
         <ul className="list-disc list-inside ml-4 space-y-2">
@@ -134,7 +134,7 @@ export default function AboutUs() {
       </section>
 
       <section className="mb-4">
-        <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+        <h2 className="text-2xl font-semibold text-blue-600 mb-2">
           Our Vision
         </h2>
         <p>
@@ -151,7 +151,7 @@ export default function AboutUs() {
       </section>
 
       <section className="mb-4">
-        <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+        <h2 className="text-2xl font-semibold text-blue-600 mb-2">
           Our Locations
         </h2>
         <p className="mb-2">📍 PO Box 1084, Columbia, SC 29202</p>
@@ -168,7 +168,7 @@ export default function AboutUs() {
       </section>
 
       <section className="mb-4">
-        <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+        <h2 className="text-2xl font-semibold text-blue-600 mb-2">
           Why HyperV Solutions
         </h2>
         <ul className="list-disc list-inside ml-4">
@@ -179,7 +179,7 @@ export default function AboutUs() {
         </ul>
       </section>
 
-      <section className="text-center mt-16">
+      <section className="text-center mt-10">
         <h3 className="text-xl font-semibold mb-4">Sounds interesting?</h3>
         <button
           onClick={() => setShowModal(true)}
