@@ -169,3 +169,70 @@ body {
   font-size: 20px;
   color: #333;
 }
+/* Spiral binding */
+.spiral-binding {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.spiral-hole {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #444;
+  margin: 3px auto;
+}
+
+/* Hand animation */
+.hand-animation {
+  position: absolute;
+  bottom: -40px;
+  left: 20px;
+  animation: handMove 2s infinite ease-in-out;
+  z-index: 30;
+  pointer-events: none;
+}
+
+@keyframes handMove {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(20px) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 0.5;
+  }
+}
+.scroll-track {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-content {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

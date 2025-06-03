@@ -12,198 +12,324 @@ import { useState } from "react";
 import ConsultancyPopup from "./ConsultancyPopup";
 
 // Enhanced Modal Example
-function EnhancedModal({ open, onClose, formData, onInputChange, onSubmit, errors, submitted }) {
+function EnhancedModal({
+  open,
+  onClose,
+  formData,
+  onInputChange,
+  onSubmit,
+  errors,
+  submitted,
+}) {
   if (!open) return null;
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'rgba(0,0,0,0.35)',
-      zIndex: 9999,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}>
-      <div style={{
-        background: 'white',
-        borderRadius: 20,
-        boxShadow: '0 4px 24px rgba(0,0,0,0.15)',
-        padding: 32,
-        maxWidth: 500,
-        width: '100%',
-        margin: 'auto',
-        position: 'relative',
-      }}>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: "rgba(0,0,0,0.35)",
+        zIndex: 9999,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div
+        style={{
+          background: "white",
+          borderRadius: 20,
+          boxShadow: "0 4px 24px rgba(0,0,0,0.15)",
+          padding: 32,
+          maxWidth: 500,
+          width: "100%",
+          margin: "auto",
+          position: "relative",
+        }}
+      >
         <button
           onClick={onClose}
           style={{
-            position: 'absolute',
+            position: "absolute",
             right: 24,
             top: 24,
             fontSize: 24,
-            background: 'none',
-            border: 'none',
-            color: '#888',
-            cursor: 'pointer',
+            background: "none",
+            border: "none",
+            color: "#888",
+            cursor: "pointer",
             fontWeight: 700,
           }}
           aria-label="Close"
-        >×</button>
-        <h2 style={{
-          fontSize: '2rem',
-          fontWeight: 700,
-          textAlign: 'center',
-          marginBottom: 24,
-          color: '#1a255e',
-          letterSpacing: 0.5,
-        }}>
+        >
+          ×
+        </button>
+        <h2
+          style={{
+            fontSize: "2rem",
+            fontWeight: 700,
+            textAlign: "center",
+            marginBottom: 24,
+            color: "#1a255e",
+            letterSpacing: 0.5,
+          }}
+        >
           Book a Consultancy Meeting
         </h2>
         {submitted ? (
-          <div style={{ textAlign: 'center', padding: '32px 0' }}>
-            <div style={{ fontSize: 48, color: '#16a34a', marginBottom: 12 }}>✔</div>
-            <div style={{ fontWeight: 600, fontSize: 18 }}>Meeting request submitted!</div>
-            <button onClick={onClose} style={{ marginTop: 24, padding: '10px 32px', borderRadius: 8, background: '#1a255e', color: 'white', border: 'none', fontWeight: 600, fontSize: 16, cursor: 'pointer' }}>Close</button>
+          <div style={{ textAlign: "center", padding: "32px 0" }}>
+            <div style={{ fontSize: 48, color: "#16a34a", marginBottom: 12 }}>
+              ✔
+            </div>
+            <div style={{ fontWeight: 600, fontSize: 18 }}>
+              Meeting request submitted!
+            </div>
+            <button
+              onClick={onClose}
+              style={{
+                marginTop: 24,
+                padding: "10px 32px",
+                borderRadius: 8,
+                background: "#1a255e",
+                color: "white",
+                border: "none",
+                fontWeight: 600,
+                fontSize: 16,
+                cursor: "pointer",
+              }}
+            >
+              Close
+            </button>
           </div>
         ) : (
-        <form onSubmit={onSubmit} noValidate>
-          <div style={{ marginBottom: 22 }}>
-            <label htmlFor="summary" style={{ fontWeight: 600, display: 'block', marginBottom: 8, color: '#1a255e' }}>Summary *</label>
-            <input
-              id="summary"
-              name="summary"
-              type="text"
-              value={formData.summary}
-              onChange={onInputChange}
-              placeholder="Enter meeting summary"
+          <form onSubmit={onSubmit} noValidate>
+            <div style={{ marginBottom: 22 }}>
+              <label
+                htmlFor="summary"
+                style={{
+                  fontWeight: 600,
+                  display: "block",
+                  marginBottom: 8,
+                  color: "#1a255e",
+                }}
+              >
+                Summary *
+              </label>
+              <input
+                id="summary"
+                name="summary"
+                type="text"
+                value={formData.summary}
+                onChange={onInputChange}
+                placeholder="Enter meeting summary"
+                style={{
+                  width: "100%",
+                  padding: "14px",
+                  borderRadius: 8,
+                  border: errors.summary
+                    ? "1.5px solid #dc2626"
+                    : "1px solid #e5e7eb",
+                  background: "#fafbfc",
+                  fontSize: "1rem",
+                  outline: "none",
+                  transition: "border-color 0.2s",
+                  marginBottom: errors.summary ? 4 : 0,
+                }}
+                aria-invalid={!!errors.summary}
+                aria-describedby="summary-error"
+                required
+              />
+              {errors.summary && (
+                <div
+                  id="summary-error"
+                  style={{ color: "#dc2626", fontSize: 13, marginTop: 2 }}
+                >
+                  {errors.summary}
+                </div>
+              )}
+            </div>
+            <div style={{ marginBottom: 22 }}>
+              <label
+                htmlFor="description"
+                style={{
+                  fontWeight: 600,
+                  display: "block",
+                  marginBottom: 8,
+                  color: "#1a255e",
+                }}
+              >
+                Description
+              </label>
+              <textarea
+                id="description"
+                name="description"
+                value={formData.description}
+                onChange={onInputChange}
+                placeholder="Describe the meeting purpose"
+                style={{
+                  width: "100%",
+                  padding: "14px",
+                  borderRadius: 8,
+                  border: "1px solid #e5e7eb",
+                  background: "#fafbfc",
+                  fontSize: "1rem",
+                  outline: "none",
+                  minHeight: 90,
+                  resize: "vertical",
+                }}
+              />
+            </div>
+            <div style={{ marginBottom: 22 }}>
+              <label
+                htmlFor="startTime"
+                style={{
+                  fontWeight: 600,
+                  display: "block",
+                  marginBottom: 8,
+                  color: "#1a255e",
+                }}
+              >
+                Start Time *
+              </label>
+              <input
+                id="startTime"
+                name="startTime"
+                type="datetime-local"
+                value={formData.startTime}
+                onChange={onInputChange}
+                style={{
+                  width: "100%",
+                  padding: "14px",
+                  borderRadius: 8,
+                  border: errors.startTime
+                    ? "1.5px solid #dc2626"
+                    : "1px solid #e5e7eb",
+                  background: "#fafbfc",
+                  fontSize: "1rem",
+                  outline: "none",
+                  marginBottom: errors.startTime ? 4 : 0,
+                }}
+                aria-invalid={!!errors.startTime}
+                aria-describedby="startTime-error"
+                required
+              />
+              {errors.startTime && (
+                <div
+                  id="startTime-error"
+                  style={{ color: "#dc2626", fontSize: 13, marginTop: 2 }}
+                >
+                  {errors.startTime}
+                </div>
+              )}
+            </div>
+            <div style={{ marginBottom: 22 }}>
+              <label
+                htmlFor="endTime"
+                style={{
+                  fontWeight: 600,
+                  display: "block",
+                  marginBottom: 8,
+                  color: "#1a255e",
+                }}
+              >
+                End Time *
+              </label>
+              <input
+                id="endTime"
+                name="endTime"
+                type="datetime-local"
+                value={formData.endTime}
+                onChange={onInputChange}
+                style={{
+                  width: "100%",
+                  padding: "14px",
+                  borderRadius: 8,
+                  border: errors.endTime
+                    ? "1.5px solid #dc2626"
+                    : "1px solid #e5e7eb",
+                  background: "#fafbfc",
+                  fontSize: "1rem",
+                  outline: "none",
+                  marginBottom: errors.endTime ? 4 : 0,
+                }}
+                aria-invalid={!!errors.endTime}
+                aria-describedby="endTime-error"
+                required
+              />
+              {errors.endTime && (
+                <div
+                  id="endTime-error"
+                  style={{ color: "#dc2626", fontSize: 13, marginTop: 2 }}
+                >
+                  {errors.endTime}
+                </div>
+              )}
+            </div>
+            <div style={{ marginBottom: 28 }}>
+              <label
+                htmlFor="email"
+                style={{
+                  fontWeight: 600,
+                  display: "block",
+                  marginBottom: 8,
+                  color: "#1a255e",
+                }}
+              >
+                Organizer Email *
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={onInputChange}
+                placeholder="you@domain.com"
+                style={{
+                  width: "100%",
+                  padding: "14px",
+                  borderRadius: 8,
+                  border: errors.email
+                    ? "1.5px solid #dc2626"
+                    : "1px solid #e5e7eb",
+                  background: "#fafbfc",
+                  fontSize: "1rem",
+                  outline: "none",
+                  marginBottom: errors.email ? 4 : 0,
+                }}
+                aria-invalid={!!errors.email}
+                aria-describedby="email-error"
+                required
+              />
+              {errors.email && (
+                <div
+                  id="email-error"
+                  style={{ color: "#dc2626", fontSize: 13, marginTop: 2 }}
+                >
+                  {errors.email}
+                </div>
+              )}
+            </div>
+            <button
+              type="submit"
               style={{
-                width: '100%',
-                padding: '14px',
+                width: "100%",
+                padding: "16px 0",
+                background: "#1a255e",
+                color: "white",
+                fontWeight: 600,
+                fontSize: "1.1rem",
                 borderRadius: 8,
-                border: errors.summary ? '1.5px solid #dc2626' : '1px solid #e5e7eb',
-                background: '#fafbfc',
-                fontSize: '1rem',
-                outline: 'none',
-                transition: 'border-color 0.2s',
-                marginBottom: errors.summary ? 4 : 0,
+                border: "none",
+                marginTop: 8,
+                cursor: "pointer",
+                transition: "background 0.2s",
               }}
-              aria-invalid={!!errors.summary}
-              aria-describedby="summary-error"
-              required
-            />
-            {errors.summary && <div id="summary-error" style={{ color: '#dc2626', fontSize: 13, marginTop: 2 }}>{errors.summary}</div>}
-          </div>
-          <div style={{ marginBottom: 22 }}>
-            <label htmlFor="description" style={{ fontWeight: 600, display: 'block', marginBottom: 8, color: '#1a255e' }}>Description</label>
-            <textarea
-              id="description"
-              name="description"
-              value={formData.description}
-              onChange={onInputChange}
-              placeholder="Describe the meeting purpose"
-              style={{
-                width: '100%',
-                padding: '14px',
-                borderRadius: 8,
-                border: '1px solid #e5e7eb',
-                background: '#fafbfc',
-                fontSize: '1rem',
-                outline: 'none',
-                minHeight: 90,
-                resize: 'vertical',
-              }}
-            />
-          </div>
-          <div style={{ marginBottom: 22 }}>
-            <label htmlFor="startTime" style={{ fontWeight: 600, display: 'block', marginBottom: 8, color: '#1a255e' }}>Start Time *</label>
-            <input
-              id="startTime"
-              name="startTime"
-              type="datetime-local"
-              value={formData.startTime}
-              onChange={onInputChange}
-              style={{
-                width: '100%',
-                padding: '14px',
-                borderRadius: 8,
-                border: errors.startTime ? '1.5px solid #dc2626' : '1px solid #e5e7eb',
-                background: '#fafbfc',
-                fontSize: '1rem',
-                outline: 'none',
-                marginBottom: errors.startTime ? 4 : 0,
-              }}
-              aria-invalid={!!errors.startTime}
-              aria-describedby="startTime-error"
-              required
-            />
-            {errors.startTime && <div id="startTime-error" style={{ color: '#dc2626', fontSize: 13, marginTop: 2 }}>{errors.startTime}</div>}
-          </div>
-          <div style={{ marginBottom: 22 }}>
-            <label htmlFor="endTime" style={{ fontWeight: 600, display: 'block', marginBottom: 8, color: '#1a255e' }}>End Time *</label>
-            <input
-              id="endTime"
-              name="endTime"
-              type="datetime-local"
-              value={formData.endTime}
-              onChange={onInputChange}
-              style={{
-                width: '100%',
-                padding: '14px',
-                borderRadius: 8,
-                border: errors.endTime ? '1.5px solid #dc2626' : '1px solid #e5e7eb',
-                background: '#fafbfc',
-                fontSize: '1rem',
-                outline: 'none',
-                marginBottom: errors.endTime ? 4 : 0,
-              }}
-              aria-invalid={!!errors.endTime}
-              aria-describedby="endTime-error"
-              required
-            />
-            {errors.endTime && <div id="endTime-error" style={{ color: '#dc2626', fontSize: 13, marginTop: 2 }}>{errors.endTime}</div>}
-          </div>
-          <div style={{ marginBottom: 28 }}>
-            <label htmlFor="email" style={{ fontWeight: 600, display: 'block', marginBottom: 8, color: '#1a255e' }}>Organizer Email *</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={onInputChange}
-              placeholder="you@domain.com"
-              style={{
-                width: '100%',
-                padding: '14px',
-                borderRadius: 8,
-                border: errors.email ? '1.5px solid #dc2626' : '1px solid #e5e7eb',
-                background: '#fafbfc',
-                fontSize: '1rem',
-                outline: 'none',
-                marginBottom: errors.email ? 4 : 0,
-              }}
-              aria-invalid={!!errors.email}
-              aria-describedby="email-error"
-              required
-            />
-            {errors.email && <div id="email-error" style={{ color: '#dc2626', fontSize: 13, marginTop: 2 }}>{errors.email}</div>}
-          </div>
-          <button type="submit" style={{
-            width: '100%',
-            padding: '16px 0',
-            background: '#1a255e',
-            color: 'white',
-            fontWeight: 600,
-            fontSize: '1.1rem',
-            borderRadius: 8,
-            border: 'none',
-            marginTop: 8,
-            cursor: 'pointer',
-            transition: 'background 0.2s',
-          }}>Create Meeting</button>
-        </form>
+            >
+              Create Meeting
+            </button>
+          </form>
         )}
       </div>
     </div>
@@ -213,28 +339,29 @@ function EnhancedModal({ open, onClose, formData, onInputChange, onSubmit, error
 export default function Footer() {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
-    summary: '',
-    description: '',
-    startTime: '',
-    endTime: '',
-    email: ''
+    summary: "",
+    description: "",
+    startTime: "",
+    endTime: "",
+    email: "",
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    setErrors(prev => ({ ...prev, [name]: undefined }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.summary.trim()) newErrors.summary = 'Summary is required.';
-    if (!formData.startTime) newErrors.startTime = 'Start time is required.';
-    if (!formData.endTime) newErrors.endTime = 'End time is required.';
-    if (!formData.email.trim()) newErrors.email = 'Email is required.';
-    else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(formData.email)) newErrors.email = 'Enter a valid email.';
+    if (!formData.summary.trim()) newErrors.summary = "Summary is required.";
+    if (!formData.startTime) newErrors.startTime = "Start time is required.";
+    if (!formData.endTime) newErrors.endTime = "End time is required.";
+    if (!formData.email.trim()) newErrors.email = "Email is required.";
+    else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(formData.email))
+      newErrors.email = "Enter a valid email.";
     return newErrors;
   };
 
@@ -249,14 +376,26 @@ export default function Footer() {
     setTimeout(() => {
       setShowModal(false);
       setSubmitted(false);
-      setFormData({ summary: '', description: '', startTime: '', endTime: '', email: '' });
+      setFormData({
+        summary: "",
+        description: "",
+        startTime: "",
+        endTime: "",
+        email: "",
+      });
       setErrors({});
     }, 1500);
   };
 
   const handleClose = () => {
     setShowModal(false);
-    setFormData({ summary: '', description: '', startTime: '', endTime: '', email: '' });
+    setFormData({
+      summary: "",
+      description: "",
+      startTime: "",
+      endTime: "",
+      email: "",
+    });
     setErrors({});
     setSubmitted(false);
   };
@@ -272,7 +411,7 @@ export default function Footer() {
         errors={errors}
         submitted={submitted}
       /> */}
-       <ConsultancyPopup isOpen={showModal} onClose={() => handleClose()} />
+      <ConsultancyPopup isOpen={showModal} onClose={() => handleClose()} />
       <footer className="bg-gray-900 text-white py-12 px-4" id="footer">
         <div className="w-full mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -369,7 +508,7 @@ export default function Footer() {
               <ul className="space-y-2 mb-4">
                 <button
                   onClick={() => setShowModal(true)}
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-all duration-300 text-sm font-medium"
+                  className="cursor-pointer inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-all duration-300 text-sm font-medium"
                 >
                   Book Free Consultation
                 </button>

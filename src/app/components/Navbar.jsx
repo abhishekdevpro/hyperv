@@ -5,11 +5,33 @@ import Link from "next/link";
 import { FaTwitter, FaDiscord, FaFacebook, FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
 import logo from "@/assets/logo.jpg";
+import ConsultancyPopup from "./ConsultancyPopup";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activePage, setActivePage] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    summary: "",
+    description: "",
+    startTime: "",
+    endTime: "",
+    email: "",
+  });
+
+  const handleClose = () => {
+    setShowModal(false);
+    setFormData({
+      summary: "",
+      description: "",
+      startTime: "",
+      endTime: "",
+      email: "",
+    });
+    setErrors({});
+    setSubmitted(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,6 +80,7 @@ export default function Navbar() {
 
   return (
     <>
+      <ConsultancyPopup isOpen={showModal} onClose={() => handleClose()} />
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
           scrolled
@@ -89,14 +112,18 @@ export default function Navbar() {
             <div className="hidden md:flex items-center justify-between w-full">
               {/* Left Navigation Tabs */}
               <div className="flex items-center space-x-4">
-                <NavItem href="/" label="Home" isActive={activePage === "home"} />
+                <NavItem
+                  href="/"
+                  label="Home"
+                  isActive={activePage === "home"}
+                />
                 <NavItem
                   href="/products"
                   label="Products"
                   isActive={activePage === "products"}
                 />
                 <NavItem
-                  href=""
+                  href="/aboutus"
                   label="About Us"
                   isActive={activePage === "about"}
                 />
@@ -127,11 +154,17 @@ export default function Navbar() {
                   label="Blog"
                   isActive={activePage === "blog"}
                 />
-                <NavItem
+                {/* <NavItem
                   href="#footer"
                   label="Contact"
                   isActive={activePage === "contact"}
-                />
+                /> */}
+                <button
+                  onClick={() => setShowModal(true)}
+                  className="cursor-pointer inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-all duration-300 text-sm font-medium"
+                >
+                  Book Free Consultation
+                </button>
               </div>
             </div>
 
@@ -213,7 +246,9 @@ export default function Navbar() {
                 <Link
                   href="/clients-partners"
                   className={`block py-2 px-3 rounded-md ${
-                    activePage === "clients-partners" ? "bg-black/5 font-bold" : ""
+                    activePage === "clients-partners"
+                      ? "bg-black/5 font-bold"
+                      : ""
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -228,7 +263,7 @@ export default function Navbar() {
                 >
                   Blog
                 </Link>
-                <Link
+                {/* <Link
                   href="#footer"
                   className={`block py-2 px-3 rounded-md ${
                     activePage === "contact" ? "bg-black/5 font-bold" : ""
@@ -236,8 +271,13 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Contact
-                </Link>
-
+                </Link> */}
+                <button
+                  onClick={() => setShowModal(true)}
+                  className=" cursor-pointer inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-all duration-300 text-sm font-medium"
+                >
+                  Book Free Consultation
+                </button>
                 {/* Mobile Social Icons */}
                 <div className="flex items-center space-x-6 py-4 border-t mt-2">
                   <Link

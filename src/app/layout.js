@@ -92,9 +92,9 @@ export default function RootLayout({ children }) {
                 <strong>UltraAura Education</strong> across the globe.
                 <br />
                 <br />
-                We are honored to be official partners with the cities of Pompano
-                Beach and Hallandale Beach to bring local job seekers and
-                students into the future of work and learning.
+                We are honored to be official partners with the cities of
+                Pompano Beach and Hallandale Beach to bring local job seekers
+                and students into the future of work and learning.
                 <br />
                 <br />
                 👉 Tap below to explore your local platform and start your
@@ -107,7 +107,7 @@ export default function RootLayout({ children }) {
                   rel="noopener noreferrer"
                   className="bg-white text-blue-700 font-semibold px-5 py-2 rounded-lg shadow hover:bg-gray-100 transition"
                 >
-                  Visit Pompano Portal
+                  Visit Pompano, FL Portal
                 </a>
                 <a
                   href="https://hallandalebeach.novajobs.us"
@@ -115,7 +115,7 @@ export default function RootLayout({ children }) {
                   rel="noopener noreferrer"
                   className="bg-white text-blue-700 font-semibold px-5 py-2 rounded-lg shadow hover:bg-gray-100 transition"
                 >
-                  Visit Hallandale Portal
+                  Visit Hallandale, FL Portal
                 </a>
                 <button
                   onClick={closePopup}
