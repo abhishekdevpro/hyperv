@@ -1,8 +1,61 @@
 "use client";
 
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-
+import Modal from "./Modal";
+import { useState } from "react";
 export default function HeroSection() {
+  const [modalData, setModalData] = useState(null);
+
+  const handleOpenModal = (type) => {
+    const dataMap = {
+      individual: {
+        heading: "Individual",
+        items: [
+          {
+            text: "Search & Apply for jobs",
+            link: "https://novajobs.us/user/jobs",
+          },
+          {
+            text: "Create AI Resume",
+            link: "https://novajobs.us/novajobs#tab2",
+          },
+          { text: "Give Skills Test", link: "https://novajobs.us/user/login" },
+          { text: "Enhance skills", link: "https://ultraaura.education/home" },
+          {
+            text: "Career Coaching",
+            link: "https://ultraaura.education/course-info/8590",
+          },
+          {
+            text: "Join Free Career Community",
+            link: "https://novajobs.us/community",
+          },
+        ],
+      },
+      business: {
+        heading: "Business",
+        items: [
+          {
+            text: "Make your AI Job Portal",
+            link: "https://novajobs.us/white-label",
+          },
+          {
+            text: "Grow your business with us",
+            link: "https://calendly.com/hypervsolutions/30min?month=2025-06",
+          },
+        ],
+      },
+      partner: {
+        heading: "Partner",
+        items: [
+          {
+            text: "Join as a partner & Grow with us",
+            link: "https://calendly.com/hypervsolutions/30min?month=2025-06",
+          },
+        ],
+      },
+    };
+    setModalData(dataMap[type]);
+  };
   const words = [
     {
       text: "Job Portal",
@@ -41,8 +94,41 @@ export default function HeroSection() {
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold leading-tight px-2 sm:px-4 mt-10">
                 Your AI-Powered Partner in HR, EdTech & AI driven Incubator
               </h1>
+              <div className="p-4 sm:p-5 md:p-6 bg-white/10 backdrop-blur-sm rounded-xl  transition-all duration-300 hover:-translate-y-1">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold leading-tight px-2 sm:px-4 mt-10">
+                  {" "}
+                  Hello, I'm Aria,{" "}
+                </h1>
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight px-2 sm:px-4 mt-3 bg-gradient-to-r from-blue-600 via-pink-500 to-fuchsia-500 bg-clip-text text-transparent">
+                  Your AI Assistant at HyperVSolutions
+                </h2>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12 md:mt-16 lg:mt-20 max-w-5xl w-full">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight px-2 sm:px-4 mt-3 text-white">
+                  Are You?
+                </h2>
+                <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 mt-8 w-full">
+                  <button
+                    onClick={() => handleOpenModal("individual")}
+                    className="w-full sm:w-auto text-white font-semibold text-lg text-center py-4 px-6 bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 shadow-md cursor-pointer"
+                  >
+                    Individuals
+                  </button>
+                  <button
+                    onClick={() => handleOpenModal("business")}
+                    className="w-full sm:w-auto text-white font-semibold text-lg text-center py-4 px-6 bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 shadow-md cursor-pointer"
+                  >
+                    Business
+                  </button>
+                  <button
+                    onClick={() => handleOpenModal("partner")}
+                    className="w-full sm:w-auto text-white font-semibold text-lg text-center py-4 px-6 bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 shadow-md cursor-pointer"
+                  >
+                    Want to Partner
+                  </button>
+                </div>
+              </div>
+
+              {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12 md:mt-16 lg:mt-20 max-w-5xl w-full">
                 <div className="flex flex-col items-center text-center p-4 sm:p-5 md:p-6 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/50 transition-all duration-300 hover:-translate-y-1">
                   <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">
                     💼 Smart Hiring
@@ -70,7 +156,7 @@ export default function HeroSection() {
                     dashboards.
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="pt-4 sm:pt-6 md:pt-8">
@@ -81,6 +167,9 @@ export default function HeroSection() {
                 Explore All Products →
               </a>
             </div>
+            {modalData && (
+              <Modal data={modalData} onClose={() => setModalData(null)} />
+            )}
           </div>
         </div>
       </section>
